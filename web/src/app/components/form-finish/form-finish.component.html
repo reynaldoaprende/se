@@ -1,0 +1,119 @@
+<form #finishForm="ngForm" name="finishForm" novalidate class="form-finish" (ngSubmit)="finish()">
+    <div class="row">
+        <div class="col">
+            <div class="form-group text-center">
+                <app-title>
+                    Felicidades, has terminado el cuestionario
+                </app-title>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group text-center form-header">
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Índice de calidad de sueño</td><td> {{report["Pittsburgh puntuación global"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Ansiedad</td><td> {{report["_Unity_Ansiedad"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Depresión</td><td> {{report["_Unity_Depresion"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Estrés Percibido</td><td> {{report["_Unity_Estres"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Conducta Suicida</td><td> {{report["_Unity_Suicida"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Unidad Familiar y Amistad</td><td> {{report["_Unity_Unidad"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Preferencia Cicardiana</td><td> {{report["_Cicardian_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Afecto Positivo</td><td> {{report["_Affection_Positive_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Afecto Negativo</td><td> {{report["_Affection_Negative_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Psicológica y Social - Frecuencia</td><td> {{report["_Violence_Suffered_Psychological_Social_Frequency_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Psicológica y Social - Daño</td><td> {{report["_Violence_Suffered_Psychological_Social_Damage_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Física, Intimidación y Agresión - Frecuencia</td><td> {{report["_Violence_Suffered_Physical_Intimidation_Assault_Frequency_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Física, Intimidación y Agresión - Daño</td><td> {{report["_Violence_Suffered_Physical_Intimidation_Assault_Damage_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Sexual - Frecuencia</td><td> {{report["_Violence_Suffered_Sexual_Frequency_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Sexual - Daño</td><td> {{report["_Violence_Suffered_Sexual_Damage_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Económica - Frecuencia</td><td> {{report["_Violence_Suffered_Economic_Frequency_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Sufrida - Económica - Daño</td><td> {{report["_Violence_Suffered_Economic_Damage_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>* Violencia Sufrida General</td><td> {{report["_Violence_Suffered_General_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Ejercida - Psicológica - Frecuencia</td><td> {{report["_Violence_Exerted_Psychological_Frequency_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Ejercida - Psicológica - Daño</td><td> {{report["_Violence_Exerted_Psychological_Damage_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Ejercida - Otro Tipo de Violencia - Frecuencia</td><td> {{report["_Violence_Exerted_Another_Frequency_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Violencia Ejercida - Otro Tipo de Violencia  - Daño</td><td> {{report["_Violence_Exerted_Another_Damage_"]}}</td>
+                    </tr>
+                    <tr>
+                        <td>* Violencia Ejercida General</td><td> {{report["_Violence_Exerted_General_"]}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <h5>Para nosotros es importante tu salud mental, por favor déjanos tus datos para contactarnos contigo.</h5>
+        </div>
+        <div class="col-12 text-center mb-4">
+            <div class="form-group">
+                <a class="btn btn-success" href="https://sgrsaludmental.unimagdalena.edu.co/agenda-tu-cita/" target="_blank">¿Necesitas ayuda? (Click aquí)</a>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col" *ngIf="isAdmin">
+            <div class="form-group text-center">
+                <app-button [type]="'button'" (click)="newRow()" [class]="'btn btn-success'" [text]="'Nuevo registro'"></app-button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group text-center">
+                <app-button [type]="'submit'" [class]="'btn btn-danger'" [text]="'Cerrar sesión'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

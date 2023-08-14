@@ -1,0 +1,284 @@
+<app-loading [active]="loading"></app-loading>
+
+<form #top #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+        
+        <div class="col-md-12">
+            <div class="form-group">
+                106.&nbsp;<app-label
+                    text="Muchas veces, me siento nervioso">
+                </app-label>
+                <app-select #many_times_feel_nervous_id="ngModel" [(ngModel)]="data.many_times_feel_nervous_id"
+                    [name]="'many_times_feel_nervous_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="many_times_feel_nervous_id.errors&&many_times_feel_nervous_id.errors.required&&many_times_feel_nervous_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                107.&nbsp;<app-label
+                    text="Me siento confiado en la vida">
+                </app-label>
+                <app-select #feel_confident_in_life_id="ngModel" [(ngModel)]="data.feel_confident_in_life_id"
+                    [name]="'feel_confident_in_life_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="feel_confident_in_life_id.errors&&feel_confident_in_life_id.errors.required&&feel_confident_in_life_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                108.&nbsp;<app-label
+                    text="Soy valiente">
+                </app-label>
+                <app-select #im_brave_id="ngModel" [(ngModel)]="data.im_brave_id"
+                    [name]="'im_brave_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="im_brave_id.errors&&im_brave_id.errors.required&&im_brave_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                109.&nbsp;<app-label
+                    text="Me he sentido cansado en los últimos meses">
+                </app-label>
+                <app-select #feel_tired_last_months_id="ngModel" [(ngModel)]="data.feel_tired_last_months_id"
+                    [name]="'feel_tired_last_months_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="feel_tired_last_months_id.errors&&feel_tired_last_months_id.errors.required&&feel_tired_last_months_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                110.&nbsp;<app-label
+                    text="He estado muy preocupado en los últimos tempos">
+                </app-label>
+                <app-select #worried_last_times_id="ngModel" [(ngModel)]="data.worried_last_times_id"
+                    [name]="'worried_last_times_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="worried_last_times_id.errors&&worried_last_times_id.errors.required&&worried_last_times_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                111.&nbsp;<app-label
+                    text="Tengo determinación para conseguir lo que quiero">
+                </app-label>
+                <app-select #have_determination_want_it_id="ngModel" [(ngModel)]="data.have_determination_want_it_id"
+                    [name]="'have_determination_want_it_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="have_determination_want_it_id.errors&&have_determination_want_it_id.errors.required&&have_determination_want_it_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                112.&nbsp;<app-label
+                    text="Siento culpa por cosas que hice en el pasado">
+                </app-label>
+                <app-select #feel_guilt_did_past_id="ngModel" [(ngModel)]="data.feel_guilt_did_past_id"
+                    [name]="'feel_guilt_did_past_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="feel_guilt_did_past_id.errors&&feel_guilt_did_past_id.errors.required&&feel_guilt_did_past_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                113.&nbsp;<app-label
+                    text="Soy apasionado por algunas cosas que hago">
+                </app-label>
+                <app-select #appasionate_things_i_do_id="ngModel" [(ngModel)]="data.appasionate_things_i_do_id"
+                    [name]="'appasionate_things_i_do_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="appasionate_things_i_do_id.errors&&appasionate_things_i_do_id.errors.required&&appasionate_things_i_do_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                114.&nbsp;<app-label
+                    text="Muchas situaciones me han dado alegría en los últimos tempos">
+                </app-label>
+                <app-select #many_situations_happiness_recent_times_id="ngModel" [(ngModel)]="data.many_situations_happiness_recent_times_id"
+                    [name]="'many_situations_happiness_recent_times_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="many_situations_happiness_recent_times_id.errors&&many_situations_happiness_recent_times_id.errors.required&&many_situations_happiness_recent_times_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                115.&nbsp;<app-label
+                    text="Me enojo cuando me llevan la contraria">
+                </app-label>
+                <app-select #angry_when_contradict_me_id="ngModel" [(ngModel)]="data.angry_when_contradict_me_id"
+                    [name]="'angry_when_contradict_me_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="angry_when_contradict_me_id.errors&&angry_when_contradict_me_id.errors.required&&angry_when_contradict_me_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                116.&nbsp;<app-label
+                    text="Las personas dicen que soy mal humorado">
+                </app-label>
+                <app-select #people_say_moody_id="ngModel" [(ngModel)]="data.people_say_moody_id"
+                    [name]="'people_say_moody_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="people_say_moody_id.errors&&people_say_moody_id.errors.required&&people_say_moody_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                117.&nbsp;<app-label
+                    text="Últimamente ocurrieron situaciones en que sentí mucha rabia por algunas personas">
+                </app-label>
+                <app-select #lately_been_situations_angry_id="ngModel" [(ngModel)]="data.lately_been_situations_angry_id"
+                    [name]="'lately_been_situations_angry_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="lately_been_situations_angry_id.errors&&lately_been_situations_angry_id.errors.required&&lately_been_situations_angry_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                118.&nbsp;<app-label
+                    text="En general me siento fuerte como para superar las dificultades de la vida">
+                </app-label>
+                <app-select #general_feel_strong_id="ngModel" [(ngModel)]="data.general_feel_strong_id"
+                    [name]="'general_feel_strong_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="general_feel_strong_id.errors&&general_feel_strong_id.errors.required&&general_feel_strong_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                119.&nbsp;<app-label
+                    text="Me da placer al experimentar cosas nuevas">
+                </app-label>
+                <app-select #pleasure_experiences_new_things_id="ngModel" [(ngModel)]="data.pleasure_experiences_new_things_id"
+                    [name]="'pleasure_experiences_new_things_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="pleasure_experiences_new_things_id.errors&&pleasure_experiences_new_things_id.errors.required&&pleasure_experiences_new_things_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                120.&nbsp;<app-label
+                    text="Me siento satisfecho de mí mismo">
+                </app-label>
+                <app-select #feel_satisfied_myself_id="ngModel" [(ngModel)]="data.feel_satisfied_myself_id"
+                    [name]="'feel_satisfied_myself_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="feel_satisfied_myself_id.errors&&feel_satisfied_myself_id.errors.required&&feel_satisfied_myself_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                121.&nbsp;<app-label
+                    text="Me irrito fácilmente">
+                </app-label>
+                <app-select #irritated_easily_id="ngModel" [(ngModel)]="data.irritated_easily_id"
+                    [name]="'irritated_easily_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="irritated_easily_id.errors&&irritated_easily_id.errors.required&&irritated_easily_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                122.&nbsp;<app-label
+                    text="Soy valiente cuando estoy frente a un desafío">
+                </app-label>
+                <app-select #im_brave_faced_challenge_id="ngModel" [(ngModel)]="data.im_brave_faced_challenge_id"
+                    [name]="'im_brave_faced_challenge_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="im_brave_faced_challenge_id.errors&&im_brave_faced_challenge_id.errors.required&&im_brave_faced_challenge_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                123.&nbsp;<app-label
+                    text="Soy una persona feliz">
+                </app-label>
+                <app-select #im_happy_person_id="ngModel" [(ngModel)]="data.im_happy_person_id"
+                    [name]="'im_happy_person_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="im_happy_person_id.errors&&im_happy_person_id.errors.required&&im_happy_person_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                124.&nbsp;<app-label
+                    text="En los últimos tiempos ocurrieron situaciones en que me sentí humillado">
+                </app-label>
+                <app-select #recent_times_felt_humiliated_id="ngModel" [(ngModel)]="data.recent_times_felt_humiliated_id"
+                    [name]="'recent_times_felt_humiliated_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="recent_times_felt_humiliated_id.errors&&recent_times_felt_humiliated_id.errors.required&&recent_times_felt_humiliated_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                125.&nbsp;<app-label
+                    text="Me he sentido triste últimamente">
+                </app-label>
+                <app-select #feeling_sad_lately_id="ngModel" [(ngModel)]="data.feeling_sad_lately_id"
+                    [name]="'feeling_sad_lately_id'" [required]="true" [data]="general" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="feeling_sad_lately_id.errors&&feeling_sad_lately_id.errors.required&&feeling_sad_lately_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+      
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Siguiente'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

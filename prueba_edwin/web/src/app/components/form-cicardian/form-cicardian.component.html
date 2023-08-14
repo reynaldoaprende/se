@@ -1,0 +1,270 @@
+<app-loading [active]="loading"></app-loading>
+
+<form #top #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                87.&nbsp;<app-label
+                    text="Si sólo pensaras en cuando te sentirías mejor y fueras totalmente libre de planificarte el día. ¿A qué hora te levantarías?">
+                </app-label>
+                <app-select #awake_hour_id="ngModel" [(ngModel)]="data.awake_hour_id"
+                    [name]="'awake_hour_id'" [required]="true" [data]="likert_awake_hour" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="awake_hour_id.errors&&awake_hour_id.errors.required&&awake_hour_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                88.&nbsp;<app-label
+                    text="Si sólo pensaras en cuando te sentirías mejor y fueras totalmente libre de planificarte el día. ¿A qué hora te acostarías?">
+                </app-label>
+                <app-select #bed_down_hour_id="ngModel" [(ngModel)]="data.bed_down_hour_id"
+                    [name]="'bed_down_hour_id'" [required]="true" [data]="likert_bed_down_hour" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="bed_down_hour_id.errors&&bed_down_hour_id.errors.required&&bed_down_hour_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                89.&nbsp;<app-label
+                    text="Para levantarte por la mañana a una hora específica. ¿Hasta qué punto necesitas que te avise el despertador?">
+                </app-label>
+                <app-select #warning_alarm_clock_id="ngModel" [(ngModel)]="data.warning_alarm_clock_id"
+                    [name]="'warning_alarm_clock_id'" [required]="true" [data]="likert_warning_alarm_clock" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="warning_alarm_clock_id.errors&&warning_alarm_clock_id.errors.required&&warning_alarm_clock_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                90.&nbsp;<app-label
+                    text="¿Te resulta fácil levantarte por las mañanas? (cuando no te despiertan de forma inesperada) ">
+                </app-label>
+                <app-select #easy_awake_id="ngModel" [(ngModel)]="data.easy_awake_id"
+                    [name]="'easy_awake_id'" [required]="true" [data]="likert_easy_awake" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="easy_awake_id.errors&&easy_awake_id.errors.required&&easy_awake_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                91.&nbsp;<app-label
+                    text="Una vez levantado por las mañanas. ¿Qué tal te encuentras durante la primera media hora?">
+                </app-label>
+                <app-select #awake_first_half_hour_id="ngModel" [(ngModel)]="data.awake_first_half_hour_id"
+                    [name]="'awake_first_half_hour_id'" [required]="true" [data]="likert_awake_first_half_hour" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="awake_first_half_hour_id.errors&&awake_first_half_hour_id.errors.required&&awake_first_half_hour_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                92.&nbsp;<app-label
+                    text="Una vez levantado por las mañanas. ¿Cómo es tu apetito durante la primera media hora?">
+                </app-label>
+                <app-select #awake_appetite_first_half_hour_id="ngModel" [(ngModel)]="data.awake_appetite_first_half_hour_id"
+                    [name]="'awake_appetite_first_half_hour_id'" [required]="true" [data]="likert_awake_appetite_first_half_hour" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="awake_appetite_first_half_hour_id.errors&&awake_appetite_first_half_hour_id.errors.required&&awake_appetite_first_half_hour_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                93.&nbsp;<app-label
+                    text="Una vez levantado por las mañanas. ¿Qué tal te sientes durante la primera media hora?">
+                </app-label>
+                <app-select #awake_feeling_first_half_hour_id="ngModel" [(ngModel)]="data.awake_feeling_first_half_hour_id"
+                    [name]="'awake_feeling_first_half_hour_id'" [required]="true" [data]="likert_awake_feeling_first_half_hour" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="awake_feeling_first_half_hour_id.errors&&awake_feeling_first_half_hour_id.errors.required&&awake_feeling_first_half_hour_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                94.&nbsp;<app-label
+                    text="Cuando no tienes compromisos al día siguiente. ¿A qué hora te acuestas en relación con tu hora habitual?">
+                </app-label>
+                <app-select #awake_not_commited_bed_down_id="ngModel" [(ngModel)]="data.awake_not_commited_bed_down_id"
+                    [name]="'awake_not_commited_bed_down_id'" [required]="true" [data]="likert_awake_not_commited_bed_down" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="awake_not_commited_bed_down_id.errors&&awake_not_commited_bed_down_id.errors.required&&awake_not_commited_bed_down_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                95.&nbsp;<app-label
+                    text="Has decidido hacer un poco de ejercicio físico. Un amigo te propone hacerlo una hora dos veces por semana y según él, la mejor hora sería de 7 a 8 de la mañana. No teniendo nada más en cuenta salvo tu propio reloj “interno”,  ¿cómo crees que te encontrarías?">
+                </app-label>
+                <app-select #awake_exercise_internal_clock_id="ngModel" [(ngModel)]="data.awake_exercise_internal_clock_id"
+                    [name]="'awake_exercise_internal_clock_id'" [required]="true" [data]="likert_awake_exercise_internal_clock" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="awake_exercise_internal_clock_id.errors&&awake_exercise_internal_clock_id.errors.required&&awake_exercise_internal_clock_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                96.&nbsp;<app-label
+                    text="¿A qué hora aproximada de la noche te sientes cansado y como consecuencia necesitas dormir?">
+                </app-label>
+                <app-select #tired_bed_down_hour_id="ngModel" [(ngModel)]="data.tired_bed_down_hour_id"
+                    [name]="'tired_bed_down_hour_id'" [required]="true" [data]="likert_tired_bed_down_hour" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="tired_bed_down_hour_id.errors&&tired_bed_down_hour_id.errors.required&&tired_bed_down_hour_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                97.&nbsp;<app-label
+                    text="Quieres estar en tu punto máximo de rendimiento para una prueba de dos horas que va a ser mentalmente agotadora. Siendo totalmente libre de planificar el día y pensando sólo en cuando te sentirías mejor. ¿Qué horario elegirías?">
+                </app-label>
+                <app-select #performance_plan_test_hour_id="ngModel" [(ngModel)]="data.performance_plan_test_hour_id"
+                    [name]="'performance_plan_test_hour_id'" [required]="true" [data]="likert_performance_plan_test_hour" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="performance_plan_test_hour_id.errors&&performance_plan_test_hour_id.errors.required&&performance_plan_test_hour_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                98.&nbsp;<app-label
+                    text="Si te acostaras a las 11 de la noche. ¿Qué nivel de cansancio notarías?">
+                </app-label>
+                <app-select #tired_sleep_id="ngModel" [(ngModel)]="data.tired_sleep_id"
+                    [name]="'tired_sleep_id'" [required]="true" [data]="likert_tired_sleep" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="tired_sleep_id.errors&&tired_sleep_id.errors.required&&tired_sleep_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                99.&nbsp;<app-label
+                    text="Por algún motivo te has acostado varias horas más tarde de lo habitual, aunque al día siguiente no has de levantarte a ninguna hora en particular. ¿Cuándo crees que te despertarías?">
+                </app-label>
+                <app-select #bed_down_later_habitual_awake_id="ngModel" [(ngModel)]="data.bed_down_later_habitual_awake_id"
+                    [name]="'bed_down_later_habitual_awake_id'" [required]="true" [data]="likert_bed_down_later_habitual_awake" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="bed_down_later_habitual_awake_id.errors&&bed_down_later_habitual_awake_id.errors.required&&bed_down_later_habitual_awake_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                100.&nbsp;<app-label
+                    text="Una noche tienes que permanecer despierto de 4 a 6 de la madrugada debido a una guardia nocturna. Sin tener ningún compromiso al día siguiente, ¿qué preferirías?">
+                </app-label>
+                <app-select #stay_awake_guard_id="ngModel" [(ngModel)]="data.stay_awake_guard_id"
+                    [name]="'stay_awake_guard_id'" [required]="true" [data]="likert_stay_awake_guard" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="stay_awake_guard_id.errors&&stay_awake_guard_id.errors.required&&stay_awake_guard_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                101.&nbsp;<app-label
+                    text="Tienes que hacer dos horas de trabajo físico pesado. Eres totalmente libre para planificarte el día. Pensando sólo en cuando te sentirías mejor, ¿qué horario escogerías?">
+                </app-label>
+                <app-select #heavy_labor_id="ngModel" [(ngModel)]="data.heavy_labor_id"
+                    [name]="'heavy_labor_id'" [required]="true" [data]="likert_heavy_labor" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="heavy_labor_id.errors&&heavy_labor_id.errors.required&&heavy_labor_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                102.&nbsp;<app-label
+                    text="Has decidido hacer ejercicio físico intenso. Un amigo te sugiere practicar una hora dos veces por semana de 10 a 11 de la noche. Pensando sólo en cuando te sentirías mejor, ¿Cómo crees que te sentaría?">
+                </app-label>
+                <app-select #heavy_exercise_id="ngModel" [(ngModel)]="data.heavy_exercise_id"
+                    [name]="'heavy_exercise_id'" [required]="true" [data]="likert_heavy_exercise" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="heavy_exercise_id.errors&&heavy_exercise_id.errors.required&&heavy_exercise_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                103.&nbsp;<app-label
+                    text="Imagínate que puedes escoger tu horario de trabajo. Supón que tu jornada es de CINCO horas al día (incluyendo los descansos) y que tu actividad es interesante y remunerada según tu rendimiento. ¿Qué CINCO HORAS CONSECUTIVAS seleccionarías? ¿Empezando en qué hora? Escoger entre los siguientes rangos:">
+                </app-label>
+                <app-select #choose_schedule_id="ngModel" [(ngModel)]="data.choose_schedule_id"
+                    [name]="'choose_schedule_id'" [required]="true" [data]="likert_choose_schedule" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="choose_schedule_id.errors&&choose_schedule_id.errors.required&&choose_schedule_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                104.&nbsp;<app-label
+                    text="¿A qué hora del día crees que alcanzas tu máximo bienestar?">
+                </app-label>
+                <app-select #max_welfare_id="ngModel" [(ngModel)]="data.max_welfare_id"
+                    [name]="'max_welfare_id'" [required]="true" [data]="likert_max_welfare" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="max_welfare_id.errors&&max_welfare_id.errors.required&&max_welfare_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                105.&nbsp;<app-label
+                    text="Se habla de personas de tipo matutino y vespertino. ¿Cuál de estos tipos te consideras ser?">
+                </app-label>
+                <app-select #morning_evening_id="ngModel" [(ngModel)]="data.morning_evening_id"
+                    [name]="'morning_evening_id'" [required]="true" [data]="likert_morning_evening" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="morning_evening_id.errors&&morning_evening_id.errors.required&&morning_evening_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Siguiente'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

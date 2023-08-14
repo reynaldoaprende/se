@@ -1,0 +1,3 @@
+DB_DATABASE=saludm
+DB_USERNAME=saludmental
+DB_PASSWORD=saludmentalunimaglamejormaneradecuidartumente

@@ -1,0 +1,11 @@
+<div class="input-group">
+    <div class="input-group-prepend" *ngIf="inputIcon">
+        <span class="input-group-text">
+            <i class="fa fa-{{inputIcon}}"></i>
+        </span>
+    </div>
+    <textarea [rows]="rows" [required]="required" [disabled]="disabled" 
+        class="{{class}}{{isInvalid?' is-invalid':''}}"
+        placeholder="{{placeholder}}" [value]="value" (input)="onInput($event.target.value)" [name]="name" (touched)="onBlur()" (blur)="onBlur()">
+    </textarea>
+</div>

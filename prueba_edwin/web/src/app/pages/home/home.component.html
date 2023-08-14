@@ -1,0 +1,41 @@
+<app-principal>
+    <app-top></app-top>
+    <div #top class="row mt-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row" *ngIf="current!='finish'">
+                <div class="col-12 text-center mb-5">
+                    <app-title>Estimado usuario, bienvenido a este espacio en el que el bienestar es vital</app-title>
+                </div>
+            </div>
+            <div class="row panel-home" *ngIf="document!=null">
+                <app-form-demographic *ngIf="current=='demographic'" (getIdUser)="getIdUser($event)" [document]="document"
+                    (finish)="finishDemographic()"></app-form-demographic>
+
+
+                <app-form-unity *ngIf="current=='unity'" [document]="document" [user_id]="idUser" (finish)="finishUnit()">
+                </app-form-unity>
+
+                <app-form-pittsburgh *ngIf="current=='pittsburgh'" [document]="document" [user_id]="idUser" (finish)="finishPittsburgh()">
+                </app-form-pittsburgh>
+
+                <app-form-cicardian *ngIf="current=='cicardian'" [document]="document" [user_id]="idUser" (finish)="finishCicardian()">
+                </app-form-cicardian>
+
+                <app-form-affection *ngIf="current=='affection'" [document]="document" [user_id]="idUser" (finish)="finishAffection()">
+                </app-form-affection>
+                <app-form-violence *ngIf="current=='violence'" [document]="document" [user_id]="idUser" (finish)="finishViolence()">
+                </app-form-violence>
+                
+
+                <app-form-edwin *ngIf="current=='edwin'" [document]="document" [user_id]="idUser" (finish)="finishEdwin()">
+                </app-form-edwin>
+
+                <app-form-finish *ngIf="current=='finish'" [user_id]="idUser" ></app-form-finish>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</app-principal>
+
+<app-loading [active]="loading"></app-loading>

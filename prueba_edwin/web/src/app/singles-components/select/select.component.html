@@ -1,0 +1,7 @@
+<select [disabled]="disabled" class="{{class}}{{isInvalid?' is-invalid':''}}" [(ngModel)]="value" (input)="onInput($event.target.value)"
+    [required]="required" [name]="name" (touched)="onBlur()" (blur)="onBlur()">
+    <option [value]="null">
+        {{placeholder?placeholder:'-- Seleccione --'}}
+    </option>
+    <option *ngFor="let item of data" [value]="item[value_field]" [innerHTML]="item[name_field]"></option>
+</select>

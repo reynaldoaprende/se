@@ -1,0 +1,39 @@
+<app-modal [(active)]="active" [type]="'modal-lg'" [allowClose]="allowClose">
+        <div class="row">
+            <div class="col">
+                <div class="form-group text-center">
+                    <app-title>{{data&&data['title']?data.title:''}}</app-title>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="video" class="row" *ngIf="data['video']">
+                    <div class="col-12 text-center">
+                        <iframe width="100%" height="315" [src]="getVideoIframe(data['video'])" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--FORMULARIO-->
+            <div class="col-12 mt-2">
+                <p [innerHtml]="data['content']" class="text-justify">
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <app-button [type]="'button'" (click)="store()"  [icon]="'check'" [class]="'btn btn-success btn-block'" [text]="data['agree']"></app-button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <app-button [type]="'button'" (click)="logout()" [icon]="'close'" [class]="'btn btn-danger btn-block'" [text]="data['reject']"></app-button>
+                </div>
+            </div>
+        </div>
+</app-modal>

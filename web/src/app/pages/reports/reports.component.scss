@@ -1,0 +1,16 @@
+.login{
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+
+.table-reports thead tr th{
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    width: 160px !important;
+    height: 1.2em !important;
+    white-space: nowrap !important;
+
+    
+}

@@ -1,0 +1,54 @@
+<form #enterForm="ngForm" name="enterForm" novalidate class="form-login" (ngSubmit)="enterSession(enterForm)">
+    <div class="row">
+        <div class="col">
+            <div class="form-group text-center">
+                <app-subtitle>Hola, bienvenido(a). Ingresa tu número de documento para participar</app-subtitle>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <app-input [inputIcon]="'user'" [disabled]="check" [required]="true" [name]="'document'" [type]="'number'" [(ngModel)]="data.document" [class]="'form-control text-center'" [placeholder]="'Ingresa tu documento'"></app-input>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="admin">
+        <div class="col">
+            <div class="form-group">
+                <app-input #passwordControl [inputIcon]="'user'" (keyup.enter)="goEnter()" [required]="true" [name]="'password'" [type]="'password'" [(ngModel)]="data.password" [class]="'form-control'" [placeholder]="'Ingresa tu contraseña'"></app-input>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="check">
+        <div class="col">
+            <div class="form-group">
+                <app-subtitle>{{message}}</app-subtitle>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="enterForm.invalid&&enterForm.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">Por favor, ingresa tu número de documento para poder ingresar.</strong>
+        </div>
+    </div>
+    <div class="row" *ngIf="!check">
+        <div class="col">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Ingresar'"></app-button>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="check || admin">
+        <div class="col" *ngIf="success">
+            <div class="form-group">
+                <app-button [type]="'button'" [class]="'btn btn-success btn-block'" (click)="goEnter()" [text]="admin?'Ingresar':'Sí'"></app-button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <app-button [type]="'button'" (click)="cancelEnter()" [class]="'btn btn-danger btn-block'" [text]="'Cancelar'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

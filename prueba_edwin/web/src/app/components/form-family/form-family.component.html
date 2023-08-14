@@ -1,0 +1,38 @@
+<app-loading [active]="loading"></app-loading>
+<div class="row">
+    <div class="col">
+        <div class="form-group text-center">
+            <app-title>Familia</app-title>
+        </div>
+    </div>
+</div>
+
+<form  #form="ngForm" name="form" novalidate (ngSubmit)="store(form)">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <app-input [type]="'text'" required="true" #name="ngModel" [(ngModel)]="data.name" placeholder="Ingresa el nombre" [name]="'name'"  [class]="'form-control'"></app-input>
+                <small *ngIf="name.errors&&name.errors.required&&name.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+    </div>
+   
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" icon="save" [class]="'btn btn-success btn-block'" [text]="'Guardar'"></app-button>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button (click)="cancelForm(form)" icon="close" [type]="'button'" [class]="'btn btn-danger btn-block'" [text]="'Cancelar'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

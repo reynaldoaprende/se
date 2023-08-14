@@ -1,0 +1,31 @@
+
+.welcome{
+    background-color: #004a87;
+    height: 100vh;
+    width: 100vh;
+    background-image: url('../../../assets/images/backgroundfield.jpg');
+    background-size: cover;
+    background-origin: center;
+    background-repeat: no-repeat;
+}
+
+.sm-content-form{
+    background-color: #fff;
+    background-color: rgb(255 255 255 / 46%);
+    border-radius: 0.5rem;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+.logo{
+    background-image: url('../../../assets/images/character_logo.png');
+    height: 14rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

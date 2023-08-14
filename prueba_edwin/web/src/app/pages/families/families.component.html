@@ -1,0 +1,63 @@
+<app-principal>
+    <app-top></app-top>
+    <div #top class="row mt-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    
+                    <app-title>Familias&nbsp;<app-button (click)="add()" icon="plus" [class]="'btn btn-success'" title="Agregar familia"></app-button></app-title>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <table id="excel-table" #table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nombre
+                                </th>
+                                <th>
+                                    Acción
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="!data || !data.length">
+                                <td colspan="2">No hay familias registradas</td>
+                            </tr>
+                            <tr *ngFor="let d of data; let i=index">
+                                <td>
+                                    {{d.name}}
+                                </td>
+                                <td>
+                                    <app-button *ngIf="indexDeleteRow==-1" icon="edit" (click)="edit(d)" [class]="'btn btn-success mr-1'" title="Editar familia"></app-button>
+                                    <app-button *ngIf="indexDeleteRow==-1" (click)="indexDeleteRow = i" icon="trash" [class]="'btn btn-danger mr-1'" title="Eliminar familia"></app-button>
+                                    <app-button *ngIf="indexDeleteRow==i" (click)="delete()" icon="check" text="Sí" [class]="'btn btn-danger mr-1'" title="Sí, eliminar familia"></app-button>
+                                    <app-button *ngIf="indexDeleteRow==i" (click)="indexDeleteRow=-1" icon="close" text="No" [class]="'btn btn-success mr-1'" title="No, no eliminar familia"></app-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row mt-5 mb-5"></div>
+</app-principal>
+
+<app-loading [active]="loading"></app-loading>
+
+<app-modal [(active)]="activeModalFamily" [allowClose]="true">
+    <app-form-family [data]="row" (cancel)="activeModalFamily=false" (success)="successFamily()"></app-form-family>
+</app-modal>

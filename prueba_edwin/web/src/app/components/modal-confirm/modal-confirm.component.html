@@ -1,0 +1,22 @@
+<app-modal [(active)]="active" [allowClose]="allowClose">
+        <div class="row">
+            <div class="col">
+                <div class="form-group text-center">
+                    <h5 [innerHTML]="text">
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <app-button (click)="confirmEvent()" [icon]="'fa fa-check'" [class]="'btn btn-success btn-block'" [text]="textConfirm"></app-button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <app-button (click)="cancelEvent()" [icon]="'fa fa-close'" [class]="'btn btn-danger btn-block'" [text]="textCancel"></app-button>
+                </div>
+            </div>
+        </div>
+</app-modal>

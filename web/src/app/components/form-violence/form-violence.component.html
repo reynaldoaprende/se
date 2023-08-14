@@ -1,0 +1,647 @@
+<app-loading [active]="loading"></app-loading>
+
+<form #top #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+      <div class="col-md-12">
+         <div class="form-group">
+            126.&nbsp;
+            <app-label text="Mi pareja me ha dicho que mi arreglo personal es desagradable."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_told_me_grooming_id="ngModel" [(ngModel)]="data.frequency_my_partner_told_me_grooming_id" name="frequency_my_partner_told_me_grooming_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_told_me_grooming_id.errors&&frequency_my_partner_told_me_grooming_id.errors.required&&frequency_my_partner_told_me_grooming_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_told_me_grooming_id="ngModel" [(ngModel)]="data.damage_my_partner_told_me_grooming_id" name="damage_my_partner_told_me_grooming_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_told_me_grooming_id.errors&&damage_my_partner_told_me_grooming_id.errors.required&&damage_my_partner_told_me_grooming_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            127.&nbsp;
+            <app-label text="Mi pareja me ha empujado con fuerza."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_pushed_me_hard_id="ngModel" [(ngModel)]="data.frequency_my_partner_pushed_me_hard_id" name="frequency_my_partner_pushed_me_hard_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_pushed_me_hard_id.errors&&frequency_my_partner_pushed_me_hard_id.errors.required&&frequency_my_partner_pushed_me_hard_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_pushed_me_hard_id="ngModel" [(ngModel)]="data.damage_my_partner_pushed_me_hard_id" name="damage_my_partner_pushed_me_hard_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_pushed_me_hard_id.errors&&damage_my_partner_pushed_me_hard_id.errors.required&&damage_my_partner_pushed_me_hard_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            128.&nbsp;
+            <app-label text="Mi pareja se enoja conmigo si no hago lo que él/ella quiere."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_gets_angry_what_wants_id="ngModel" [(ngModel)]="data.frequency_my_partner_gets_angry_what_wants_id" name="frequency_my_partner_gets_angry_what_wants_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_gets_angry_what_wants_id.errors&&frequency_my_partner_gets_angry_what_wants_id.errors.required&&frequency_my_partner_gets_angry_what_wants_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_gets_angry_what_wants_id="ngModel" [(ngModel)]="data.damage_my_partner_gets_angry_what_wants_id" name="damage_my_partner_gets_angry_what_wants_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_gets_angry_what_wants_id.errors&&damage_my_partner_gets_angry_what_wants_id.errors.required&&damage_my_partner_gets_angry_what_wants_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            129.&nbsp;
+            <app-label text="Mi pareja me critica como amante"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_criticizes_me_lover_id="ngModel" [(ngModel)]="data.frequency_my_partner_criticizes_me_lover_id" name="frequency_my_partner_criticizes_me_lover_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_criticizes_me_lover_id.errors&&frequency_my_partner_criticizes_me_lover_id.errors.required&&frequency_my_partner_criticizes_me_lover_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_criticizes_me_lover_id="ngModel" [(ngModel)]="data.damage_my_partner_criticizes_me_lover_id" name="damage_my_partner_criticizes_me_lover_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_criticizes_me_lover_id.errors&&damage_my_partner_criticizes_me_lover_id.errors.required&&damage_my_partner_criticizes_me_lover_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            130.&nbsp;
+            <app-label text="Mi pareja me rechaza cuando quiero tener relaciones sexuales con él/ella."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_rejects_have_sex_id="ngModel" [(ngModel)]="data.frequency_my_partner_rejects_have_sex_id" name="frequency_my_partner_rejects_have_sex_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_rejects_have_sex_id.errors&&frequency_my_partner_rejects_have_sex_id.errors.required&&frequency_my_partner_rejects_have_sex_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_rejects_have_sex_id="ngModel" [(ngModel)]="data.damage_my_partner_rejects_have_sex_id" name="damage_my_partner_rejects_have_sex_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_rejects_have_sex_id.errors&&damage_my_partner_rejects_have_sex_id.errors.required&&damage_my_partner_rejects_have_sex_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            131.&nbsp;
+            <app-label text="Mi pareja vigila todo lo que yo hago."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_monitors_everything_id="ngModel" [(ngModel)]="data.frequency_my_partner_monitors_everything_id" name="frequency_my_partner_monitors_everything_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_monitors_everything_id.errors&&frequency_my_partner_monitors_everything_id.errors.required&&frequency_my_partner_monitors_everything_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_monitors_everything_id="ngModel" [(ngModel)]="data.damage_my_partner_monitors_everything_id" name="damage_my_partner_monitors_everything_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_monitors_everything_id.errors&&damage_my_partner_monitors_everything_id.errors.required&&damage_my_partner_monitors_everything_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            132.&nbsp;
+            <app-label text="Mi pareja ha dicho que soy feo/a o poco atractivo/a"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_said_ugly_unattractive_id="ngModel" [(ngModel)]="data.frequency_my_partner_said_ugly_unattractive_id" name="frequency_my_partner_said_ugly_unattractive_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_said_ugly_unattractive_id.errors&&frequency_my_partner_said_ugly_unattractive_id.errors.required&&frequency_my_partner_said_ugly_unattractive_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_said_ugly_unattractive_id="ngModel" [(ngModel)]="data.damage_my_partner_said_ugly_unattractive_id" name="damage_my_partner_said_ugly_unattractive_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_said_ugly_unattractive_id.errors&&damage_my_partner_said_ugly_unattractive_id.errors.required&&damage_my_partner_said_ugly_unattractive_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            133.&nbsp;
+            <app-label text="Mi pareja no toma en cuenta mis necesidades sexuales"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_take_account_sexual_id="ngModel" [(ngModel)]="data.frequency_my_partner_take_account_sexual_id" name="frequency_my_partner_take_account_sexual_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_take_account_sexual_id.errors&&frequency_my_partner_take_account_sexual_id.errors.required&&frequency_my_partner_take_account_sexual_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_take_account_sexual_id="ngModel" [(ngModel)]="data.damage_my_partner_take_account_sexual_id" name="damage_my_partner_take_account_sexual_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_take_account_sexual_id.errors&&damage_my_partner_take_account_sexual_id.errors.required&&damage_my_partner_take_account_sexual_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            134.&nbsp;
+            <app-label text="Mi pareja me prohíbe que me junte o reúna con amistades"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_forbids_friends_id="ngModel" [(ngModel)]="data.frequency_my_partner_forbids_friends_id" name="frequency_my_partner_forbids_friends_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_forbids_friends_id.errors&&frequency_my_partner_forbids_friends_id.errors.required&&frequency_my_partner_forbids_friends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_forbids_friends_id="ngModel" [(ngModel)]="data.damage_my_partner_forbids_friends_id" name="damage_my_partner_forbids_friends_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_forbids_friends_id.errors&&damage_my_partner_forbids_friends_id.errors.required&&damage_my_partner_forbids_friends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            135.&nbsp;
+            <app-label text="Mi pareja utiliza el dinero para controlarme"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_uses_money_control_me_id="ngModel" [(ngModel)]="data.frequency_my_partner_uses_money_control_me_id" name="frequency_my_partner_uses_money_control_me_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_uses_money_control_me_id.errors&&frequency_my_partner_uses_money_control_me_id.errors.required&&frequency_my_partner_uses_money_control_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_uses_money_control_me_id="ngModel" [(ngModel)]="data.damage_my_partner_uses_money_control_me_id" name="damage_my_partner_uses_money_control_me_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_uses_money_control_me_id.errors&&damage_my_partner_uses_money_control_me_id.errors.required&&damage_my_partner_uses_money_control_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            136.&nbsp;
+            <app-label text="Mi pareja ha golpeado o pateado la pared, la puerta o algún mueble para asustarme"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_hit_something_scare_me_id="ngModel" [(ngModel)]="data.frequency_my_partner_hit_something_scare_me_id" name="frequency_my_partner_hit_something_scare_me_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_hit_something_scare_me_id.errors&&frequency_my_partner_hit_something_scare_me_id.errors.required&&frequency_my_partner_hit_something_scare_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_hit_something_scare_me_id="ngModel" [(ngModel)]="data.damage_my_partner_hit_something_scare_me_id" name="damage_my_partner_hit_something_scare_me_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_hit_something_scare_me_id.errors&&damage_my_partner_hit_something_scare_me_id.errors.required&&damage_my_partner_hit_something_scare_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            137.&nbsp;
+            <app-label text="Mi pareja me ha amenazado con dejarme."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_threatened_leave_me_id="ngModel" [(ngModel)]="data.frequency_my_partner_threatened_leave_me_id" name="frequency_my_partner_threatened_leave_me_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_threatened_leave_me_id.errors&&frequency_my_partner_threatened_leave_me_id.errors.required&&frequency_my_partner_threatened_leave_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_threatened_leave_me_id="ngModel" [(ngModel)]="data.damage_my_partner_threatened_leave_me_id" name="damage_my_partner_threatened_leave_me_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_threatened_leave_me_id.errors&&damage_my_partner_threatened_leave_me_id.errors.required&&damage_my_partner_threatened_leave_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            138.&nbsp;
+            <app-label text="He tenido miedo de mi pareja."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_afraid_partner_id="ngModel" [(ngModel)]="data.frequency_i_have_afraid_partner_id" name="frequency_i_have_afraid_partner_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_afraid_partner_id.errors&&frequency_i_have_afraid_partner_id.errors.required&&frequency_i_have_afraid_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_afraid_partner_id="ngModel" [(ngModel)]="data.damage_i_have_afraid_partner_id" name="damage_i_have_afraid_partner_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_afraid_partner_id.errors&&damage_i_have_afraid_partner_id.errors.required&&damage_i_have_afraid_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            139.&nbsp;
+            <app-label text="Mi pareja me ha forzado a tener relaciones sexuales cuando estoy enfermo/a o está en riesgo mi salud o me siento mal."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_has_forced_have_sex_id="ngModel" [(ngModel)]="data.frequency_my_partner_has_forced_have_sex_id" name="frequency_my_partner_has_forced_have_sex_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_has_forced_have_sex_id.errors&&frequency_my_partner_has_forced_have_sex_id.errors.required&&frequency_my_partner_has_forced_have_sex_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_has_forced_have_sex_id="ngModel" [(ngModel)]="data.damage_my_partner_has_forced_have_sex_id" name="damage_my_partner_has_forced_have_sex_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_has_forced_have_sex_id.errors&&damage_my_partner_has_forced_have_sex_id.errors.required&&damage_my_partner_has_forced_have_sex_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            140.&nbsp;
+            <app-label text="Mi pareja se molesta con mis éxitos y mis logros."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_upset_successes_id="ngModel" [(ngModel)]="data.frequency_my_partner_upset_successes_id" name="frequency_my_partner_upset_successes_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_upset_successes_id.errors&&frequency_my_partner_upset_successes_id.errors.required&&frequency_my_partner_upset_successes_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_upset_successes_id="ngModel" [(ngModel)]="data.damage_my_partner_upset_successes_id" name="damage_my_partner_upset_successes_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_upset_successes_id.errors&&damage_my_partner_upset_successes_id.errors.required&&damage_my_partner_upset_successes_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            141.&nbsp;
+            <app-label text="Mi pareja me ha golpeado."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_has_hit_me_id="ngModel" [(ngModel)]="data.frequency_my_partner_has_hit_me_id" name="frequency_my_partner_has_hit_me_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_has_hit_me_id.errors&&frequency_my_partner_has_hit_me_id.errors.required&&frequency_my_partner_has_hit_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_has_hit_me_id="ngModel" [(ngModel)]="data.damage_my_partner_has_hit_me_id" name="damage_my_partner_has_hit_me_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_has_hit_me_id.errors&&damage_my_partner_has_hit_me_id.errors.required&&damage_my_partner_has_hit_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            142.&nbsp;
+            <app-label text="Mi pareja me prohíbe trabajar o seguir estudiando"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_forbids_work_studying_id="ngModel" [(ngModel)]="data.frequency_my_partner_forbids_work_studying_id" name="frequency_my_partner_forbids_work_studying_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_forbids_work_studying_id.errors&&frequency_my_partner_forbids_work_studying_id.errors.required&&frequency_my_partner_forbids_work_studying_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_forbids_work_studying_id="ngModel" [(ngModel)]="data.damage_my_partner_forbids_work_studying_id" name="damage_my_partner_forbids_work_studying_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_forbids_work_studying_id.errors&&damage_my_partner_forbids_work_studying_id.errors.required&&damage_my_partner_forbids_work_studying_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            143.&nbsp;
+            <app-label text="Mi pareja me agrede verbalmente si no atiendo a mis hijos como él/ella piensa que debería ser."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_verbally_assaults_id="ngModel" [(ngModel)]="data.frequency_my_partner_verbally_assaults_id" name="frequency_my_partner_verbally_assaults_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_verbally_assaults_id.errors&&frequency_my_partner_verbally_assaults_id.errors.required&&frequency_my_partner_verbally_assaults_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_verbally_assaults_id="ngModel" [(ngModel)]="data.damage_my_partner_verbally_assaults_id" name="damage_my_partner_verbally_assaults_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_verbally_assaults_id.errors&&damage_my_partner_verbally_assaults_id.errors.required&&damage_my_partner_verbally_assaults_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            144.&nbsp;
+            <app-label text="Mi pareja se enoja si no atiendo a mis hijos como él/ella piensa que debería ser."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_angry_children_should_id="ngModel" [(ngModel)]="data.frequency_my_partner_angry_children_should_id" name="frequency_my_partner_angry_children_should_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_angry_children_should_id.errors&&frequency_my_partner_angry_children_should_id.errors.required&&frequency_my_partner_angry_children_should_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_angry_children_should_id="ngModel" [(ngModel)]="data.damage_my_partner_angry_children_should_id" name="damage_my_partner_angry_children_should_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_angry_children_should_id.errors&&damage_my_partner_angry_children_should_id.errors.required&&damage_my_partner_angry_children_should_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            145.&nbsp;
+            <app-label text="Mi pareja se enoja cuando le digo que no me alcanza el dinero que me da o gano."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_angry_tell_money_id="ngModel" [(ngModel)]="data.frequency_my_partner_angry_tell_money_id" name="frequency_my_partner_angry_tell_money_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_angry_tell_money_id.errors&&frequency_my_partner_angry_tell_money_id.errors.required&&frequency_my_partner_angry_tell_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_angry_tell_money_id="ngModel" [(ngModel)]="data.damage_my_partner_angry_tell_money_id" name="damage_my_partner_angry_tell_money_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_angry_tell_money_id.errors&&damage_my_partner_angry_tell_money_id.errors.required&&damage_my_partner_angry_tell_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            146.&nbsp;
+            <app-label text="Mi pareja se enoja si no está la comida o el trabajo hecho cuando él/ella cree que debería estar."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_gets_upset_food_works_id="ngModel" [(ngModel)]="data.frequency_my_partner_gets_upset_food_works_id" name="frequency_my_partner_gets_upset_food_works_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_gets_upset_food_works_id.errors&&frequency_my_partner_gets_upset_food_works_id.errors.required&&frequency_my_partner_gets_upset_food_works_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_gets_upset_food_works_id="ngModel" [(ngModel)]="data.damage_my_partner_gets_upset_food_works_id" name="damage_my_partner_gets_upset_food_works_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_gets_upset_food_works_id.errors&&damage_my_partner_gets_upset_food_works_id.errors.required&&damage_my_partner_gets_upset_food_works_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            147.&nbsp;
+            <app-label text="Mi pareja se pone celoso/a y sospecha de mis amistades."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_gets_jealous_friends_id="ngModel" [(ngModel)]="data.frequency_my_partner_gets_jealous_friends_id" name="frequency_my_partner_gets_jealous_friends_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_gets_jealous_friends_id.errors&&frequency_my_partner_gets_jealous_friends_id.errors.required&&frequency_my_partner_gets_jealous_friends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_gets_jealous_friends_id="ngModel" [(ngModel)]="data.damage_my_partner_gets_jealous_friends_id" name="damage_my_partner_gets_jealous_friends_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_gets_jealous_friends_id.errors&&damage_my_partner_gets_jealous_friends_id.errors.required&&damage_my_partner_gets_jealous_friends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            148.&nbsp;
+            <app-label text="Mi pareja administra el dinero sin tomarme en cuenta."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_manages_money_id="ngModel" [(ngModel)]="data.frequency_my_partner_manages_money_id" name="frequency_my_partner_manages_money_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_manages_money_id.errors&&frequency_my_partner_manages_money_id.errors.required&&frequency_my_partner_manages_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_manages_money_id="ngModel" [(ngModel)]="data.damage_my_partner_manages_money_id" name="damage_my_partner_manages_money_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_manages_money_id.errors&&damage_my_partner_manages_money_id.errors.required&&damage_my_partner_manages_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            149.&nbsp;
+            <app-label text="Mi pareja me chantajea con su dinero"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_blackmails_me_money_id="ngModel" [(ngModel)]="data.frequency_my_partner_blackmails_me_money_id" name="frequency_my_partner_blackmails_me_money_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_blackmails_me_money_id.errors&&frequency_my_partner_blackmails_me_money_id.errors.required&&frequency_my_partner_blackmails_me_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_blackmails_me_money_id="ngModel" [(ngModel)]="data.damage_my_partner_blackmails_me_money_id" name="damage_my_partner_blackmails_me_money_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_blackmails_me_money_id.errors&&damage_my_partner_blackmails_me_money_id.errors.required&&damage_my_partner_blackmails_me_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            150.&nbsp;
+            <app-label text="Mi pareja ha llegado a insultarme."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_has_come_insult_me_id="ngModel" [(ngModel)]="data.frequency_my_partner_has_come_insult_me_id" name="frequency_my_partner_has_come_insult_me_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_has_come_insult_me_id.errors&&frequency_my_partner_has_come_insult_me_id.errors.required&&frequency_my_partner_has_come_insult_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_has_come_insult_me_id="ngModel" [(ngModel)]="data.damage_my_partner_has_come_insult_me_id" name="damage_my_partner_has_come_insult_me_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_has_come_insult_me_id.errors&&damage_my_partner_has_come_insult_me_id.errors.required&&damage_my_partner_has_come_insult_me_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            151.&nbsp;
+            <app-label text="Mi pareja me limita económicamente para mantenerme en casa o se enoja cuando no aporto o doy el gasto que él/ella cree que debería ser."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_financially_angry_id="ngModel" [(ngModel)]="data.frequency_my_partner_financially_angry_id" name="frequency_my_partner_financially_angry_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_financially_angry_id.errors&&frequency_my_partner_financially_angry_id.errors.required&&frequency_my_partner_financially_angry_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_financially_angry_id="ngModel" [(ngModel)]="data.damage_my_partner_financially_angry_id" name="damage_my_partner_financially_angry_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_financially_angry_id.errors&&damage_my_partner_financially_angry_id.errors.required&&damage_my_partner_financially_angry_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            152.&nbsp;
+            <app-label text="Mi pareja se ha burlado de alguna parte de mi cuerpo."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_my_partner_made_fun_some_part_body_id="ngModel" [(ngModel)]="data.frequency_my_partner_made_fun_some_part_body_id" name="frequency_my_partner_made_fun_some_part_body_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_my_partner_made_fun_some_part_body_id.errors&&frequency_my_partner_made_fun_some_part_body_id.errors.required&&frequency_my_partner_made_fun_some_part_body_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_my_partner_made_fun_some_part_body_id="ngModel" [(ngModel)]="data.damage_my_partner_made_fun_some_part_body_id" name="damage_my_partner_made_fun_some_part_body_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_my_partner_made_fun_some_part_body_id.errors&&damage_my_partner_made_fun_some_part_body_id.errors.required&&damage_my_partner_made_fun_some_part_body_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            153.&nbsp;
+            <app-label text="Le he dicho es culpable de nuestros problemas."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_ive_told_hes_blame_our_problems_id="ngModel" [(ngModel)]="data.frequency_ive_told_hes_blame_our_problems_id" name="frequency_ive_told_hes_blame_our_problems_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_ive_told_hes_blame_our_problems_id.errors&&frequency_ive_told_hes_blame_our_problems_id.errors.required&&frequency_ive_told_hes_blame_our_problems_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_ive_told_hes_blame_our_problems_id="ngModel" [(ngModel)]="data.damage_ive_told_hes_blame_our_problems_id" name="damage_ive_told_hes_blame_our_problems_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_ive_told_hes_blame_our_problems_id.errors&&damage_ive_told_hes_blame_our_problems_id.errors.required&&damage_ive_told_hes_blame_our_problems_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            154.&nbsp;
+            <app-label text="He llegado a gritarle a mi pareja."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_come_yell_partner_id="ngModel" [(ngModel)]="data.frequency_i_have_come_yell_partner_id" name="frequency_i_have_come_yell_partner_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_come_yell_partner_id.errors&&frequency_i_have_come_yell_partner_id.errors.required&&frequency_i_have_come_yell_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_come_yell_partner_id="ngModel" [(ngModel)]="data.damage_i_have_come_yell_partner_id" name="damage_i_have_come_yell_partner_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_come_yell_partner_id.errors&&damage_i_have_come_yell_partner_id.errors.required&&damage_i_have_come_yell_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            155.&nbsp;
+            <app-label text="Me he enojado cuando me contradice o no está de acuerdo conmigo."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_angry_contradicts_disagrees_id="ngModel" [(ngModel)]="data.frequency_i_have_angry_contradicts_disagrees_id" name="frequency_i_have_angry_contradicts_disagrees_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_angry_contradicts_disagrees_id.errors&&frequency_i_have_angry_contradicts_disagrees_id.errors.required&&frequency_i_have_angry_contradicts_disagrees_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_angry_contradicts_disagrees_id="ngModel" [(ngModel)]="data.damage_i_have_angry_contradicts_disagrees_id" name="damage_i_have_angry_contradicts_disagrees_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_angry_contradicts_disagrees_id.errors&&damage_i_have_angry_contradicts_disagrees_id.errors.required&&damage_i_have_angry_contradicts_disagrees_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            156.&nbsp;
+            <app-label text="He llegado a insultar a mi pareja."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_come_insult_my_partner_id="ngModel" [(ngModel)]="data.frequency_i_have_come_insult_my_partner_id" name="frequency_i_have_come_insult_my_partner_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_come_insult_my_partner_id.errors&&frequency_i_have_come_insult_my_partner_id.errors.required&&frequency_i_have_come_insult_my_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_come_insult_my_partner_id="ngModel" [(ngModel)]="data.damage_i_have_come_insult_my_partner_id" name="damage_i_have_come_insult_my_partner_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_come_insult_my_partner_id.errors&&damage_i_have_come_insult_my_partner_id.errors.required&&damage_i_have_come_insult_my_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            157.&nbsp;
+            <app-label text="He amenazado a mi pareja con abandonarlo/la."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_threatened_partner_leave_id="ngModel" [(ngModel)]="data.frequency_i_have_threatened_partner_leave_id" name="frequency_i_have_threatened_partner_leave_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_threatened_partner_leave_id.errors&&frequency_i_have_threatened_partner_leave_id.errors.required&&frequency_i_have_threatened_partner_leave_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_threatened_partner_leave_id="ngModel" [(ngModel)]="data.damage_i_have_threatened_partner_leave_id" name="damage_i_have_threatened_partner_leave_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_threatened_partner_leave_id.errors&&damage_i_have_threatened_partner_leave_id.errors.required&&damage_i_have_threatened_partner_leave_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            158.&nbsp;
+            <app-label text="Cuando no atiende a los hijos como yo creo agredo verbalmente a mi pareja."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_when_he_verbally_attack_my_partner_id="ngModel" [(ngModel)]="data.frequency_when_he_verbally_attack_my_partner_id" name="frequency_when_he_verbally_attack_my_partner_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_when_he_verbally_attack_my_partner_id.errors&&frequency_when_he_verbally_attack_my_partner_id.errors.required&&frequency_when_he_verbally_attack_my_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_when_he_verbally_attack_my_partner_id="ngModel" [(ngModel)]="data.damage_when_he_verbally_attack_my_partner_id" name="damage_when_he_verbally_attack_my_partner_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_when_he_verbally_attack_my_partner_id.errors&&damage_when_he_verbally_attack_my_partner_id.errors.required&&damage_when_he_verbally_attack_my_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            159.&nbsp;
+            <app-label text="No tomo en cuenta las necesidades sexuales de mi pareja"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_take_sexual_needs_partner_id="ngModel" [(ngModel)]="data.frequency_i_take_sexual_needs_partner_id" name="frequency_i_take_sexual_needs_partner_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_take_sexual_needs_partner_id.errors&&frequency_i_take_sexual_needs_partner_id.errors.required&&frequency_i_take_sexual_needs_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_take_sexual_needs_partner_id="ngModel" [(ngModel)]="data.damage_i_take_sexual_needs_partner_id" name="damage_i_take_sexual_needs_partner_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_take_sexual_needs_partner_id.errors&&damage_i_take_sexual_needs_partner_id.errors.required&&damage_i_take_sexual_needs_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            160.&nbsp;
+            <app-label text="Le he prohibido a mi pareja que se junte o reúna con sus amistades."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_forbidden_partner_friends_id="ngModel" [(ngModel)]="data.frequency_i_have_forbidden_partner_friends_id" name="frequency_i_have_forbidden_partner_friends_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_forbidden_partner_friends_id.errors&&frequency_i_have_forbidden_partner_friends_id.errors.required&&frequency_i_have_forbidden_partner_friends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_forbidden_partner_friends_id="ngModel" [(ngModel)]="data.damage_i_have_forbidden_partner_friends_id" name="damage_i_have_forbidden_partner_friends_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_forbidden_partner_friends_id.errors&&damage_i_have_forbidden_partner_friends_id.errors.required&&damage_i_have_forbidden_partner_friends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            161.&nbsp;
+            <app-label text="He llegado a lastimar físicamente a mi pareja."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_physically_hurt_partner_id="ngModel" [(ngModel)]="data.frequency_i_have_physically_hurt_partner_id" name="frequency_i_have_physically_hurt_partner_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_physically_hurt_partner_id.errors&&frequency_i_have_physically_hurt_partner_id.errors.required&&frequency_i_have_physically_hurt_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_physically_hurt_partner_id="ngModel" [(ngModel)]="data.damage_i_have_physically_hurt_partner_id" name="damage_i_have_physically_hurt_partner_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_physically_hurt_partner_id.errors&&damage_i_have_physically_hurt_partner_id.errors.required&&damage_i_have_physically_hurt_partner_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            162.&nbsp;
+            <app-label text="Me molesta que mi pareja gaste su propio dinero."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_it_bothers_my_partner_spends_money_id="ngModel" [(ngModel)]="data.frequency_it_bothers_my_partner_spends_money_id" name="frequency_it_bothers_my_partner_spends_money_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_it_bothers_my_partner_spends_money_id.errors&&frequency_it_bothers_my_partner_spends_money_id.errors.required&&frequency_it_bothers_my_partner_spends_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_it_bothers_my_partner_spends_money_id="ngModel" [(ngModel)]="data.damage_it_bothers_my_partner_spends_money_id" name="damage_it_bothers_my_partner_spends_money_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_it_bothers_my_partner_spends_money_id.errors&&damage_it_bothers_my_partner_spends_money_id.errors.required&&damage_it_bothers_my_partner_spends_money_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            163.&nbsp;
+            <app-label text="He exigido a mi pareja me dé explicaciones detalladas de la forma en que gasta el dinero."></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_required_my_partner_spends_id="ngModel" [(ngModel)]="data.frequency_i_have_required_my_partner_spends_id" name="frequency_i_have_required_my_partner_spends_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_required_my_partner_spends_id.errors&&frequency_i_have_required_my_partner_spends_id.errors.required&&frequency_i_have_required_my_partner_spends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_required_my_partner_spends_id="ngModel" [(ngModel)]="data.damage_i_have_required_my_partner_spends_id" name="damage_i_have_required_my_partner_spends_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_required_my_partner_spends_id.errors&&damage_i_have_required_my_partner_spends_id.errors.required&&damage_i_have_required_my_partner_spends_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="form-group">
+            164.&nbsp;
+            <app-label text="He dicho a mi pareja que es feo/a o poco atractivo/a"></app-label>
+            <div class="row">
+               <div class="col-md">
+                  <app-label text="Frecuencia:"></app-label>
+                  <app-select #frequency_i_have_told_my_partner_is_ugly_id="ngModel" [(ngModel)]="data.frequency_i_have_told_my_partner_is_ugly_id" name="frequency_i_have_told_my_partner_is_ugly_id" [required]="true" [data]="likert_frequency" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="frequency_i_have_told_my_partner_is_ugly_id.errors&&frequency_i_have_told_my_partner_is_ugly_id.errors.required&&frequency_i_have_told_my_partner_is_ugly_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+               <div class="col-md">
+                  <app-label text="Daño:"></app-label>
+                  <app-select #damage_i_have_told_my_partner_is_ugly_id="ngModel" [(ngModel)]="data.damage_i_have_told_my_partner_is_ugly_id" name="damage_i_have_told_my_partner_is_ugly_id" [required]="true" [data]="likert_damage" name_field="name" value_field="id" [class]="'form-control'" placeholder="-- Selecciona --"></app-select><small *ngIf="damage_i_have_told_my_partner_is_ugly_id.errors&&damage_i_have_told_my_partner_is_ugly_id.errors.required&&damage_i_have_told_my_partner_is_ugly_id.touched" class="text-danger">* Campo requerido</small>
+               </div>
+            </div>
+         </div>
+      </div>
+
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Siguiente'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

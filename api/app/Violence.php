@@ -1,0 +1,105 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Violence extends Model
+{
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public $table = "violence";
+    protected $fillable = [
+        'user_id'
+        /*1*/,'frequency_my_partner_told_me_grooming_id'
+        /*2*/,'frequency_my_partner_pushed_me_hard_id'
+        /*3*/,'frequency_my_partner_gets_angry_what_wants_id'
+        /*4*/,'frequency_my_partner_criticizes_me_lover_id'
+        /*5*/,'frequency_my_partner_rejects_have_sex_id'
+        /*6*/,'frequency_my_partner_monitors_everything_id'
+        /*7*/,'frequency_my_partner_said_ugly_unattractive_id'
+        /*8*/,'frequency_my_partner_take_account_sexual_id'
+        /*9*/,'frequency_my_partner_forbids_friends_id'
+        /*10*/,'frequency_my_partner_uses_money_control_me_id'
+        /*11*/,'frequency_my_partner_hit_something_scare_me_id'
+        /*12*/,'frequency_my_partner_threatened_leave_me_id'
+        /*13*/,'frequency_i_have_afraid_partner_id'
+        /*14*/,'frequency_my_partner_has_forced_have_sex_id'
+        /*15*/,'frequency_my_partner_upset_successes_id'
+        /*16*/,'frequency_my_partner_has_hit_me_id'
+        /*17*/,'frequency_my_partner_forbids_work_studying_id'
+        /*18*/,'frequency_my_partner_verbally_assaults_id'
+        /*19*/,'frequency_my_partner_angry_children_should_id'
+        /*20*/,'frequency_my_partner_angry_tell_money_id'
+        /*21*/,'frequency_my_partner_gets_upset_food_works_id'
+        /*22*/,'frequency_my_partner_gets_jealous_friends_id'
+        /*23*/,'frequency_my_partner_manages_money_id'
+        /*24*/,'frequency_my_partner_blackmails_me_money_id'
+        /*25*/,'frequency_my_partner_has_come_insult_me_id'
+        /*26*/,'frequency_my_partner_financially_angry_id'
+        /*27*/,'frequency_my_partner_made_fun_some_part_body_id'
+        /*28*/,'frequency_ive_told_hes_blame_our_problems_id'
+        /*29*/,'frequency_i_have_come_yell_partner_id'
+        /*30*/,'frequency_i_have_angry_contradicts_disagrees_id'
+        /*31*/,'frequency_i_have_come_insult_my_partner_id'
+        /*32*/,'frequency_i_have_threatened_partner_leave_id'
+        /*33*/,'frequency_when_he_verbally_attack_my_partner_id'
+        /*34*/,'frequency_i_take_sexual_needs_partner_id'
+        /*35*/,'frequency_i_have_forbidden_partner_friends_id'
+        /*36*/,'frequency_i_have_physically_hurt_partner_id'
+        /*37*/,'frequency_it_bothers_my_partner_spends_money_id'
+        /*38*/,'frequency_i_have_required_my_partner_spends_id'
+        /*39*/,'frequency_i_have_told_my_partner_is_ugly_id'
+
+        /*1*/,'damage_my_partner_told_me_grooming_id'
+        /*2*/,'damage_my_partner_pushed_me_hard_id'
+        /*3*/,'damage_my_partner_gets_angry_what_wants_id'
+        /*4*/,'damage_my_partner_criticizes_me_lover_id'
+        /*5*/,'damage_my_partner_rejects_have_sex_id'
+        /*6*/,'damage_my_partner_monitors_everything_id'
+        /*7*/,'damage_my_partner_said_ugly_unattractive_id'
+        /*8*/,'damage_my_partner_take_account_sexual_id'
+        /*9*/,'damage_my_partner_forbids_friends_id'
+        /*10*/,'damage_my_partner_uses_money_control_me_id'
+        /*11*/,'damage_my_partner_hit_something_scare_me_id'
+        /*12*/,'damage_my_partner_threatened_leave_me_id'
+        /*13*/,'damage_i_have_afraid_partner_id'
+        /*14*/,'damage_my_partner_has_forced_have_sex_id'
+        /*15*/,'damage_my_partner_upset_successes_id'
+        /*16*/,'damage_my_partner_has_hit_me_id'
+        /*17*/,'damage_my_partner_forbids_work_studying_id'
+        /*18*/,'damage_my_partner_verbally_assaults_id'
+        /*19*/,'damage_my_partner_angry_children_should_id'
+        /*20*/,'damage_my_partner_angry_tell_money_id'
+        /*21*/,'damage_my_partner_gets_upset_food_works_id'
+        /*22*/,'damage_my_partner_gets_jealous_friends_id'
+        /*23*/,'damage_my_partner_manages_money_id'
+        /*24*/,'damage_my_partner_blackmails_me_money_id'
+        /*25*/,'damage_my_partner_has_come_insult_me_id'
+        /*26*/,'damage_my_partner_financially_angry_id'
+        /*27*/,'damage_my_partner_made_fun_some_part_body_id'
+        /*28*/,'damage_ive_told_hes_blame_our_problems_id'
+        /*29*/,'damage_i_have_come_yell_partner_id'
+        /*30*/,'damage_i_have_angry_contradicts_disagrees_id'
+        /*31*/,'damage_i_have_come_insult_my_partner_id'
+        /*32*/,'damage_i_have_threatened_partner_leave_id'
+        /*33*/,'damage_when_he_verbally_attack_my_partner_id'
+        /*34*/,'damage_i_take_sexual_needs_partner_id'
+        /*35*/,'damage_i_have_forbidden_partner_friends_id'
+        /*36*/,'damage_i_have_physically_hurt_partner_id'
+        /*37*/,'damage_it_bothers_my_partner_spends_money_id'
+        /*38*/,'damage_i_have_required_my_partner_spends_id'
+        /*39*/,'damage_i_have_told_my_partner_is_ugly_id'
+
+        ,'created_user_at'
+        ,'deleted_user_at'
+        ,'updated_user_at'
+        ,'created_at'
+        ,'deleted_at'
+        ,'updated_at'
+    ];
+}

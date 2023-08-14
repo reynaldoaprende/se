@@ -1,0 +1,18 @@
+<div class="card mb-2">
+  <div class="card-img-top" [ngStyle]="{'background-image':'url(' + (image?image:default) + ')'}"></div>
+  <!-- <img class="card-img-top" src="{{image?image:default}}" alt="Card image cap"> -->
+    <div class="card-body">
+      <button [disabled]="disabled" (click)="action()" class="btn btn-{{color}} btn-block btn-sm mb-1" >
+        <i *ngIf="icon" class="fa fa-{{icon}} mr-1"></i>
+        {{text_button}}
+      </button>
+      <h6 class="card-title text-center">
+        {{title}}
+      </h6>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{subtitle}}
+      </h6>
+      <!-- <p class="card-text" [innerHtml]="description">
+      </p> -->
+    </div>
+  </div>

@@ -1,0 +1,32 @@
+
+.card-body{
+    min-height: 9em;
+
+    button{
+        font-size: 1.3rem;
+    }
+}
+
+.card-img-top{
+    height: 20rem;
+    width: 100%;
+    // min-height: 11rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media all and (max-width: 1400px){
+    .card-img-top{
+        height: 12rem;
+        width: 100%;
+        // min-height: 11rem;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+.card-title{
+    font-size: 1.3rem;
+}

@@ -1,0 +1,288 @@
+<app-loading [active]="loading"></app-loading>
+
+<form #top  #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+        <div class="col-md-12" *ngIf="admin">
+            <div class="form-group">
+                <app-label text="Familia:"></app-label>
+                <app-select #family_id="ngModel" [(ngModel)]="data.family_id" [name]="'family_id'" [required]="true"
+                    [data]="families" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="family_id.errors&&family_id.errors.required&&family_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                1.&nbsp;<app-label text="Nº de documento de identidad"></app-label>
+                <app-input (focusout)="findUser()" [required]="true" [disabled]="!admin" [type]="'text'" [placeholder]="'Ingresa tu número de documento de identidad'" [(ngModel)]="data.document" [name]="'document'"  [class]="'form-control'"></app-input>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                2.&nbsp;<app-label text="Tipo de documento de identidad:"></app-label>
+                <app-select #document_type_id="ngModel" [(ngModel)]="data.document_type_id" [name]="'document_type_id'" [required]="true"
+                    [data]="documents_types" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="document_type_id.errors&&document_type_id.errors.required&&document_type_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+                3.&nbsp;<app-label text="Nombre completo"></app-label>
+                <app-input #name="ngModel" [required]="true" placeholder="Ingresa tu nombre completo" [type]="'text'" [(ngModel)]="data.name" [name]="'name'"  [class]="'form-control'"></app-input>
+                <small *ngIf="name.errors&&name.errors.required&&name.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                4.&nbsp;<app-label text="Edad"></app-label>
+                <app-input #age="ngModel" pattern="^$|^([0-9]|[1-9][0-9]|[1][0][0])?" [required]="true" [type]="'number'" [(ngModel)]="data.age" [class]="'form-control'" [name]="'age'" [placeholder]="'Edad'"></app-input>
+                <small *ngIf="age.errors&&age.errors.required&&age.touched" class="text-danger">* Campo requerido</small>
+                <small *ngIf="age.errors&&age.errors.pattern&&age.touched" class="text-danger">* Edad inválida</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                5.&nbsp;<app-label text="Sexo"></app-label>
+                <app-select #gender_id="ngModel" [(ngModel)]="data.gender_id" [name]="'gender_id'" [required]="true"
+                    [data]="genders" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="gender_id.errors&&gender_id.errors.required&&gender_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                6.&nbsp;<app-label text="País de Nacimiento"></app-label>
+                <app-select #countryid="ngModel" (ngModelChange)="loadStates($event)" [(ngModel)]="country_id" [name]="'countryid'" [required]="true" [data]="countries" [class]="'form-control'" [placeholder]="'-- Selecciona --'">
+                </app-select>
+                <small *ngIf="countryid.errors&&countryid.errors.required&&countryid.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="form-group">
+                6.1.&nbsp;<app-label text="Departamento de Nacimiento"></app-label>
+                <app-select #stateid="ngModel" (ngModelChange)="loadLocations($event)" [(ngModel)]="state_id" [name]="'stateid'" [required]="true"
+                    [data]="states"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="stateid.errors&&stateid.errors.required&&stateid.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                6.2.&nbsp;<app-label text="Ciudad de Nacimiento"></app-label>
+                <app-select #birthdate_place_id="ngModel" [(ngModel)]="data.birthdate_place_id" [name]="'birthdate_place_id'" [required]="true"
+                    [data]="locations" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="birthdate_place_id.errors&&birthdate_place_id.errors.required&&birthdate_place_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                7.&nbsp;<app-label text="Fecha de nacimiento"></app-label>
+                <app-input #birthdate="ngModel" (focusout)="validBirthdate(form)" [max]="current_date | date:'yyyy-MM-dd'" [required]="true" [name]="'birthdate'" [type]="'date'" [(ngModel)]="data.birthdate" [class]="'form-control'" [placeholder]="'Ingresa tu fecha de nacimiento'"></app-input>
+                <small *ngIf="birthdate.errors&&birthdate.errors.required&&birthdate.touched" class="text-danger">* Campo requerido</small>
+                <small *ngIf="birthdate.errors&&birthdate.errors.birthdate&&birthdate.touched" class="text-danger">* Fecha de nacimiento inválida</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                8.&nbsp;<app-label text="Estado civil"></app-label>
+                <app-select #civil_status_id="ngModel" [(ngModel)]="data.civil_status_id" [name]="'civil_status_id'" [required]="true"
+                    [data]="civil_states" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="civil_status_id.errors&&civil_status_id.errors.required&&civil_status_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                9.&nbsp;<app-label text="Ocupación"></app-label>
+                <app-input #occupation="ngModel" [required]="true" [name]="'occupation'" [type]="'text'" [(ngModel)]="data.occupation" [class]="'form-control'" [placeholder]="'Ingresa tu ocupación'"></app-input>
+                <small *ngIf="occupation.errors&&occupation.errors.required&&occupation.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                10.&nbsp;<app-label text="Escolaridad"></app-label>
+                <app-select #scholarship_id="ngModel" [(ngModel)]="data.scholarship_id" [name]="'scholarship_id'" [required]="true"
+                    [data]="scholarshipes" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="scholarship_id.errors&&scholarship_id.errors.required&&scholarship_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                11.&nbsp;<app-label text="País de Residencia"></app-label>
+                <app-select #countryresidenceid="ngModel" (ngModelChange)="loadStatesResidence($event)" [(ngModel)]="country_residence_id" [name]="'countryresidenceid'" 
+                [required]="true" [data]="countries" [class]="'form-control'" [placeholder]="'-- Selecciona --'">
+                </app-select>
+                <small *ngIf="countryresidenceid.errors&&countryresidenceid.errors.required&&countryresidenceid.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="form-group">
+                11.1.&nbsp;<app-label text="Departamento de Residencia"></app-label>
+                <app-select #stateresidenceid="ngModel" (ngModelChange)="loadLocationsResidence($event)" [(ngModel)]="state_residence_id" [name]="'stateresidenceid'" [required]="true"
+                    [data]="statesResidence"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="stateresidenceid.errors&&stateresidenceid.errors.required&&stateresidenceid.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                11.2.&nbsp;<app-label text="Ciudad de Residencia"></app-label>
+                <app-select #cityid="ngModel" [(ngModel)]="data.city_id" [name]="'cityid'" [required]="true"
+                    [data]="locationsResidence" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="cityid.errors&&cityid.errors.required&&cityid.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <!-- <div class="col-md-12">
+            <div class="form-group">
+                11.&nbsp;<app-label text="Ciudad de residencia"></app-label>
+                <app-input #city="ngModel" [required]="true" [name]="'city'" [type]="'text'" [(ngModel)]="data.city" [class]="'form-control'" [placeholder]="'Ingresa tu ciudad'"></app-input>
+                <small *ngIf="city.errors&&city.errors.required&&city.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div> -->
+        <div class="col-md-12">
+            <div class="form-group">
+                12.&nbsp;<app-label text="Correo electrónico"></app-label>
+                <app-input #email="ngModel" [required]="true" [name]="'email'" [type]="'text'" [(ngModel)]="data.email" [class]="'form-control'" [placeholder]="'Ingresa tu email'"></app-input>
+                <small *ngIf="email.errors&&email.errors.required&&email.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                13.&nbsp;<app-label text="Estrato socioeconómico:"></app-label>
+                <app-input #socioeconomic="ngModel" [required]="true" [name]="'socioeconomic'" [type]="'text'" [(ngModel)]="data.socioeconomic" [class]="'form-control'" [placeholder]="'Ingresa tu estrato socieconómico'"></app-input>
+                <small *ngIf="socioeconomic.errors&&socioeconomic.errors.required&&socioeconomic.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                14.&nbsp;<app-label text="¿De qué manera sientes que más te ha afectado la pandemia por Covid-19?"></app-label>
+                <app-select #pandemic_affectation_way_id="ngModel" [(ngModel)]="data.pandemic_affectation_way_id" [name]="'pandemic_affectation_way_id'" [required]="true"
+                    [data]="pandemic_affectation_ways" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="pandemic_affectation_way_id.errors&&pandemic_affectation_way_id.errors.required&&pandemic_affectation_way_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                15.&nbsp;<app-label text="¿Te enfermaste por Covid-19?"></app-label>
+                <app-select #sick_covid="ngModel" [(ngModel)]="data.sick_covid" [name]="'sick_covid'" [required]="true"
+                    [data]="confirmOptions" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="sick_covid.errors&&sick_covid.errors.required&&sick_covid.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                16.&nbsp;<app-label text="¿Tienes o tuviste algún familiar cercano enfermo por Covid-19?"></app-label>
+                <app-select #relative_covid="ngModel" [(ngModel)]="data.relative_covid" [name]="'relative_covid'" [required]="true"
+                    [data]="confirmOptions" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="relative_covid.errors&&relative_covid.errors.required&&relative_covid.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                17.&nbsp;<app-label text="¿Has sido vacunado contra el Covid-19?"></app-label>
+                <app-select #vaccinate_covid="ngModel" (ngModelChange)="vaccinateCovidChange($event)" [(ngModel)]="data.vaccinate_covid" [name]="'vaccinate_covid'" [required]="true"
+                    [data]="confirmOptions" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="vaccinate_covid.errors&&vaccinate_covid.errors.required&&vaccinate_covid.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                18.&nbsp;<app-label text="Si la respuesta fue afirmativa, ¿qué vacuna le aplicaron?"></app-label>
+                <app-select #applied_vaccine_id="ngModel" [(ngModel)]="data.applied_vaccine_id" [name]="'applied_vaccine_id'" [disabled]="data.vaccinate_covid==0" [required]="data.vaccinate_covid==1"
+                    [data]="applied_vaccine" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="applied_vaccine_id.errors&&applied_vaccine_id.errors.required&&applied_vaccine_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                19.&nbsp;<app-label text="¿Tiene usted la dosis completa?"></app-label>
+                <app-select #full_dose="ngModel" [disabled]="data.vaccinate_covid==0" (ngModelChange)="$event==1?data.reason_not_vaccinated_id=null:''" [(ngModel)]="data.full_dose" [name]="'full_dose'" [required]="true"
+                    [data]="confirmOptions" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="full_dose.errors&&full_dose.errors.required&&full_dose.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                20.&nbsp;<app-label text="Si su respuesta anterior fue No ¿Cuál de las siguientes razones aplica mejor para usted?:"></app-label>
+                <app-select #reason_not_vaccinated_id="ngModel" [(ngModel)]="data.reason_not_vaccinated_id" [name]="'reason_not_vaccinated_id'" [disabled]="data.full_dose==1" [required]="data.full_dose==0"
+                    [data]="reason_not_vaccinated" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="reason_not_vaccinated_id.errors&&reason_not_vaccinated_id.errors.required&&reason_not_vaccinated_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                21.&nbsp;<app-label text="¿Presenta usted alguna discapacidad?"></app-label>
+                <app-select #disability="ngModel" (ngModelChange)="$event==0?data.disability_type_id=null:''" [(ngModel)]="data.disability" [name]="'disability'" [required]="true"
+                    [data]="confirmOptions" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="disability.errors&&disability.errors.required&&disability.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                22.&nbsp;<app-label text="Si la respuesta fue afirmativa, ¿qué tipo de discapacidad?"></app-label>
+                <app-select #disability_type_id="ngModel" [(ngModel)]="data.disability_type_id" [name]="'disability_type_id'" [disabled]="data.disability==0" [required]="data.disability==1"
+                    [data]="disability_type" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="disability_type_id.errors&&disability_type_id.errors.required&&disability_type_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                23.&nbsp;<app-label text="Usa o practica de manera problemática alguna de las siguientes sustancias o actividades:"></app-label>
+                <app-select #psychoactive_substances_id="ngModel" [(ngModel)]="data.psychoactive_substances_id" [name]="'psychoactive_substances_id'" [required]="true"
+                    [data]="psychoactive_substances" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="psychoactive_substances_id.errors&&psychoactive_substances_id.errors.required&&psychoactive_substances_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                24.&nbsp;<app-label text="¿Ha presentado alguno de los siguientes síntomas la última semana?"></app-label>
+                <!-- <app-select #symptoms_last_week_id="ngModel" [(ngModel)]="data.symptoms_last_week_id" [name]="'symptoms_last_week_id'" [required]="true"
+                    [data]="symptoms_last_week" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select> -->
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let s of symptoms_last_week; let si=index">
+                            <input name="demographic_symptoms{{si}}" [(ngModel)]="s.checked"
+                                                                (click)="onChangeMultiple(si,$event.target.checked,$event)"
+                                                                type="checkbox">
+                                                            &nbsp;{{s['name']}}
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Siguiente'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<app-modal-confirm text="¿Deseas borrar esta familia?" [(active)]="activeConfirmDeleteFamily" (cancel)="activeConfirmDeleteFamily = false" (confirm)="confirmDeleteFamily()"></app-modal-confirm>

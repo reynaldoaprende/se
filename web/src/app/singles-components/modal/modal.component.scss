@@ -1,0 +1,25 @@
+.modal-body{
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    border-radius: .3rem;
+    // width: 20em;
+}
+
+.back-loading{
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#modal-component{
+    z-index: 9999;
+    overflow: auto;
+}
+
+#backdrop-component{
+    z-index: 9998;
+}

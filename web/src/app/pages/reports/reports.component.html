@@ -1,0 +1,917 @@
+<app-principal>
+    <app-top></app-top>
+    <div #top class="row mt-5">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <app-title>Bienvenido, puedes exportar los resultados de las pruebas</app-title>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <app-button (click)="exportAsXLSX()" [icon]="'file-excel-o'"
+                            [class]="'btn btn-success btn-block'" [text]="'Exportar'"></app-button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <app-title>Total de registros: {{data.length}}</app-title>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <table id="excel-table" #table class="table table-bordered table-reports">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nombre completo
+                                </th>
+                                <th>
+                                    Edad
+                                </th>
+                                <th>
+                                    Tipo de documento de identidad:
+                                </th>
+                                <th>
+                                    Nº de documento de identidad
+                                </th>
+                                <th>
+                                    Sexo
+                                </th>
+                                <th>
+                                    Lugar de nacimiento
+                                </th>
+                                <th>
+                                    Fecha de nacimiento
+                                </th>
+                                <th>
+                                    Estado civil
+                                </th>
+                                <th>
+                                    Ocupación
+                                </th>
+                                <th>
+                                    Escolaridad
+                                </th>
+                                <th>
+                                    Ciudad de residencia
+                                </th>
+                                <th>
+                                    Correo electrónico
+                                </th>
+                                <th>
+                                    Estrato socioeconómico:
+                                </th>
+                                <th>
+                                    ¿De qué manera sientes que más te ha afectado la pandemia por Covid-19?
+                                </th>
+                                <th>
+                                    ¿Te enfermaste por Covid-19?
+                                </th>
+                                <th>
+                                    ¿Tienes o tuviste algún familiar cercano enfermo por Covid-19?
+                                </th>
+                                <th>
+                                    ¿Has sido vacunado contra el Covid-19?
+                                </th>
+                                <th>
+                                    Si la respuesta fue afirmativa, ¿qué vacuna le aplicaron?
+                                </th>
+                                <th>
+                                    ¿Tiene usted la dosis completa?
+                                </th>
+                                <th>
+                                    Si su respuesta anterior fue No ¿Cuál de las siguientes razones aplica mejor para
+                                    usted?:
+                                </th>
+                                <th>
+                                    ¿Presenta usted alguna discapacidad?
+                                </th>
+                                <th>
+                                    Si la respuesta fue afirmativa, ¿qué tipo de discapacidad?
+                                </th>
+                                <th>
+                                    Usa o practica de manera problemática alguna de las siguientes sustancias o
+                                    actividades:
+                                </th>
+                                <th>
+                                    Ha presentado alguno de los siguientes síntomas la última semana?
+                                </th>
+
+                                <!--********************************************-->
+                                <!--****+****************************************-->
+                                <!--****************** UNIDAD FAMILIAR *********-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <th></th>
+                                <th>¿Con qué frecuencia ha estado afectado por algo que ha ocurrido inesperadamente?
+                                </th>
+                                <th>¿Con qué frecuencia se ha sentido incapaz de controlar las cosas importantes en su
+                                    vida?</th>
+                                <th>¿Con qué frecuencia se ha sentido nervioso o estresado?</th>
+                                <th>¿Con qué frecuencia ha estado seguro sobre su capacidad para manejar sus problemas
+                                    personales?</th>
+                                <th>¿Con qué frecuencia ha sentido que las cosas le van bien?</th>
+                                <th>¿Con qué frecuencia ha sentido que no podía afrontar todas las cosas que tenía que
+                                    hacer?</th>
+                                <th>¿Con qué frecuencia ha podido controlar las dificultades de su vida?</th>
+                                <th>¿Con qué frecuencia se ha sentido que tenía todo bajo control?</th>
+                                <th>¿Con qué frecuencia ha estado enfadado porque las cosas que le han ocurrido estaban
+                                    fuera de su control?</th>
+                                <th>¿Con qué frecuencia ha sentido que las dificultades se acumulan tanto que no puede
+                                    superarlas?</th>
+
+                                <th>Me siento más nervioso y ansioso que de costumbre.</th>
+                                <th>Me da miedo sin razón alguna.</th>
+                                <th>Me enojo fácilmente o siento pánico.</th>
+                                <th>Siento que me estoy desmoronando.</th>
+                                <th>Mis brazos y piernas tiemblan.</th>
+                                <th>Me molestan los dolores de cabeza, cuello y dolor de espalda.</th>
+                                <th>Me siento débil y me canso fácilmente.</th>
+                                <th>Puedo sentir mi corazón latir rápido.</th>
+                                <th>Me molestan los mareos.</th>
+                                <th>Tengo desmayos o sensación de desmayos.</th>
+                                <th>Tengo sensación de entumecimiento y hormigueo en mis dedos de manos y pies.</th>
+                                <th>Me molestan los dolores de estómago o la indigestión.</th>
+                                <th>Tengo que vaciar mi vejiga con frecuencia.</th>
+                                <th>Se me calienta la cara y se me pone enrojecida.</th>
+                                <th>Tengo pesadillas.</th>
+
+                                <th>No pude dejar de estar triste a pesar de la ayuda de amigos y familiares</th>
+                                <th>Me sentí deprimido (a)</th>
+                                <th>Pensé que mi vida ha sido un fracaso</th>
+                                <th>Me sentí nervioso</th>
+                                <th>Estuve feliz</th>
+                                <th>Me sentí solo (a)</th>
+                                <th>Disfruté la vida</th>
+                                <th>Tuve crisis de llanto</th>
+                                <th>Me sentí triste</th>
+                                <th>Sentí que no podía seguir adelante</th>
+
+                                <th>¿Has pensado alguna vez que la vida no vale la pena?</th>
+                                <th>¿Has deseado alguna vez estar muerto?</th>
+                                <th>¿Has pensado alguna vez terminar con tu vida?</th>
+                                <th>¿Has intentado suicidarte?</th>
+
+                                <th>¿Cuentas con alguien de tu familia para poder platicar cuando lo necesitas?</th>
+                                <th>¿Cuentas con algún amigo(a) con quien puedas platicar cuando lo necesitas?</th>
+                                <th>¿Cuentas con alguien de tu familia que te ayude a resolver algún problema personal?
+                                </th>
+                                <th>¿Cuentas con algún amigo(a) que te que te ayude a resolver algún problema personal?
+                                </th>
+                                <th>¿Tus padres te demuestran cariño y/o afecto?</th>
+                                <th>¿Cuentas con algún amigo(a) que te demuestre afecto?</th>
+                                <th>¿Confías en tu familia para hablar de las cosas que te preocupan?</th>
+                                <th>¿Confías en algún amigo(a) para hablar de las cosas que te preocupan?</th>
+                                <th>¿Alguien de tu familia te apoya cuando tienes problemas en la escuela?</th>
+                                <th>¿Alguien de tus amigos(as) te ayuda en las tareas de la escuela o trabajo?</th>
+                                <th>¿Alguien de tus amigos(as) te apoya cuando tienes problemas en la escuela?</th>
+                                <th>¿En mi familia se habla de los problemas de todos y nos apoyamos todos (papás, hijos
+                                    y hermanos)?</th>
+                                <th>¿Estás satisfecho(a) con el apoyo que recibes de tu familia?</th>
+                                <th>¿Estás satisfecho(a) con el apoyo que recibes de tus amigos(as)?</th>
+
+                                <th>
+                                    Unidad - Estrés Percibido
+                                </th>
+                                <th>
+                                    Unidad - Ansiedad
+                                </th>
+                                <th>
+                                    Unidad - Depresión
+                                </th>
+                                <th>
+                                    Unidad - Conducta Suicida
+                                </th>
+                                <th>
+                                    Unidad - Familiar y Amistad
+                                </th>
+
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--****************** PITTSBURGH ***************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <th></th>
+                                <th>
+                                    Durante el último mes, ¿a qué hora se acostó normalmente por la noche?
+                                </th>
+                                <th>
+                                    Durante el último mes, ¿cuánto tiempo (en minutos) le tomó quedarse dormido en
+                                    promedio?
+                                </th>
+                                <th>
+                                    Durante el último mes, ¿a qué hora se despertó habitualmente por la mañana?
+                                </th>
+                                <th>
+                                    Durante el último mes, ¿Cuántas horas durmió cada noche? (el tiempo puede ser
+                                    diferente de la cantidad de horas que estuvo en la cama)
+                                </th>
+                                <th>
+                                    No poder quedarse dormido en la primera media hora
+                                </th>
+                                <th>
+                                    Despertarse durante en el medio de la noche o de madrugada
+                                </th>
+                                <th>
+                                    Tener que levantarse para ir al baño
+                                </th>
+                                <th>
+                                    No poder respirar bien
+                                </th>
+                                <th>
+                                    Toser o roncar ruidosamente
+                                </th>
+                                <th>
+                                    Sentir frío
+                                </th>
+                                <th>
+                                    Sentir calor
+                                </th>
+                                <th>
+                                    Tener 'malos sueños' o pesadillas
+                                </th>
+                                <th>
+                                    Tener dolores
+                                <th>
+                                    Otras razones
+                                </th>
+                                <th>
+                                    Durante el último mes, ¿ha tomado alguna pastilla para dormir, recetada por un
+                                    médico o indicada por otra persona (farmacéutico, amigo, familiar) o incluso por su
+                                    cuenta?
+                                </th>
+                                <th>
+                                    Durante el último mes, ¿cuántas veces ha tenido problemas para permanecer despierto
+                                    mientras conducía, comía, trabajaba, estudiaba o desarrollaba alguna otra actividad
+                                    social?
+                                </th>
+                                <th>
+                                    Durante el último mes, ¿se sintió mal o con falta de entusiasmo para realizar sus
+                                    actividades diarias?
+                                </th>
+                                <th>
+                                    Durante el último mes, ¿cómo calificaría la calidad de su sueño?
+                                </th>
+                                <th>
+                                    Pittsburgh puntuación global
+                                </th>
+                                <th>
+                                    Pittsburgh - resultado
+                                </th>
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--********** PREFERENCIA CICARDIANA***********-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <th></th>
+                                <th>
+                                    Si sólo pensaras en cuando te sentirías mejor y fueras totalmente libre de
+                                    planificarte el día. ¿A qué hora te levantarías?
+                                </th>
+                                <th>
+                                    Si sólo pensaras en cuando te sentirías mejor y fueras totalmente libre de
+                                    planificarte el día. ¿A qué hora te acostarías?
+                                </th>
+                                <th>
+                                    Para levantarte por la mañana a una hora específica. ¿Hasta qué punto necesitas que
+                                    te avise el despertador?
+                                </th>
+                                <th>
+                                    ¿Te resulta fácil levantarte por las mañanas? (cuando no te despiertan de forma
+                                    inesperada)
+                                </th>
+                                <th>
+                                    Una vez levantado por las mañanas. ¿Qué tal te encuentras durante la primera media
+                                    hora?
+                                </th>
+                                <th>
+                                    Una vez levantado por las mañanas. ¿Cómo es tu apetito durante la primera media
+                                    hora?
+                                </th>
+                                <th>
+                                    Una vez levantado por las mañanas. ¿Qué tal te sientes durante la primera media
+                                    hora?
+                                </th>
+                                <th>
+                                    Cuando no tienes compromisos al día siguiente. ¿A qué hora te acuestas en relación
+                                    con tu hora habitual?
+                                </th>
+                                <th>
+                                    Has decidido hacer un poco de ejercicio físico. Un amigo te propone hacerlo una hora
+                                    dos veces por semana y según él, la mejor hora sería de 7 a 8 de la mañana. No
+                                    teniendo nada más en cuenta salvo tu propio reloj “interno”, ¿cómo crees que te
+                                    encontrarías?
+                                </th>
+                                <th>
+                                    ¿A qué hora aproximada de la noche te sientes cansado y como consecuencia necesitas
+                                    dormir?
+                                </th>
+                                <th>
+                                    Quieres estar en tu punto máximo de rendimiento para una prueba de dos horas que va
+                                    a ser mentalmente agotadora. Siendo totalmente libre de planificar el día y pensando
+                                    sólo en cuando te sentirías mejor. ¿Qué horario elegirías?
+                                </th>
+                                <th>
+                                    Si te acostaras a las 11 de la noche. ¿Qué nivel de cansancio notarías?
+                                </th>
+                                <th>
+                                    Por algún motivo te has acostado varias horas más tarde de lo habitual, aunque al
+                                    día siguiente no has de levantarte a ninguna hora en particular. ¿Cuándo crees que
+                                    te despertarías?
+                                </th>
+                                <th>
+                                    Una noche tienes que permanecer despierto de 4 a 6 de la madrugada debido a una
+                                    guardia nocturna. Sin tener ningún compromiso al día siguiente, ¿qué preferirías?
+                                </th>
+                                <th>
+                                    Tienes que hacer dos horas de trabajo físico pesado. Eres totalmente libre para
+                                    planificarte el día. Pensando sólo en cuando te sentirías mejor, ¿qué horario
+                                    escogerías?
+                                </th>
+                                <th>
+                                    Has decidido hacer ejercicio físico intenso. Un amigo te sugiere practicar una hora
+                                    dos veces por semana de 10 a 11 de la noche. Pensando sólo en cuando te sentirías
+                                    mejor, ¿Cómo crees que te sentaría?
+                                </th>
+                                <th>
+                                    Imagínate que puedes escoger tu horario de trabajo. Supón que tu jornada es de CINCO
+                                    horas al día (incluyendo los descansos) y que tu actividad es interesante y
+                                    remunerada según tu rendimiento. ¿Qué CINCO HORAS CONSECUTIVAS seleccionarías?
+                                    ¿Empezando en qué hora? Escoger entre los siguientes rangos:
+                                </th>
+                                <th>
+                                    ¿A qué hora del día crees que alcanzas tu máximo bienestar?
+                                </th>
+                                <th>
+                                    Se habla de personas de tipo matutino y vespertino. ¿Cuál de estos tipos te
+                                    consideras ser?
+                                </th>
+                                <th>
+                                    Preferencia Cicardiana - Resultado
+                                </th>
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--****************** AFECTACIÓN ***************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <th></th>
+                                <th> Muchas veces, me siento nervioso
+                                </th>
+                                <th>Me siento confiado en la vida
+                                </th>
+                                <th>Soy valiente
+                                </th>
+                                <th>Me he sentido cansado en los últimos meses
+                                </th>
+                                <th>He estado muy preocupado en los últimos tempos
+                                </th>
+                                <th>Tengo determinación para conseguir lo que quiero
+                                </th>
+                                <th>Siento culpa por cosas que hice en el pasado
+                                </th>
+                                <th>Soy apasionado por algunas cosas que hago
+                                </th>
+                                <th>Muchas situaciones me han dado alegría en los últimos tempos
+                                </th>
+                                <th>Me enojo cuando me llevan la contraria
+                                </th>
+                                <th>Las personas dicen que soy mal humorado
+                                </th>
+                                <th>Últimamente ocurrieron situaciones en que sentí mucha rabia por algunas personas
+                                </th>
+                                <th>En general me siento fuerte como para superar las dificultades de la vida
+                                </th>
+                                <th>Me da placer al experimentar cosas nuevas
+                                </th>
+                                <th>Me siento satisfecho de mí mismo
+                                </th>
+                                <th>Me irrito fácilmente
+                                </th>
+                                <th>Soy valiente cuando estoy frente a un desafío
+                                </th>
+                                <th>Soy una persona feliz
+                                </th>
+                                <th>En los últimos tiempos ocurrieron situaciones en que me sentí humillado
+                                </th>
+                                <th>Me he sentido triste últimamente
+                                </th>
+                                <th>Afectación - Positiva</th>
+                                <th>Afectación - Negativa</th>
+
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--****************** VIOLENCIA ***************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <th></th>
+                                <th>Frecuencia: Mi pareja me ha dicho que mi arreglo personal es desagradable.</th>
+                                <th>Frecuencia: Mi pareja me ha empujado con fuerza.</th>
+                                <th>Frecuencia: Mi pareja se enoja conmigo si no hago lo que él/ella quiere.</th>
+                                <th>Frecuencia: Mi pareja me critica como amante</th>
+                                <th>Frecuencia: Mi pareja me rechaza cuando quiero tener relaciones sexuales con
+                                    él/ella.</th>
+                                <th>Frecuencia: Mi pareja vigila todo lo que yo hago.</th>
+                                <th>Frecuencia: Mi pareja ha dicho que soy feo/a o poco atractivo/a</th>
+                                <th>Frecuencia: Mi pareja no toma en cuenta mis necesidades sexuales</th>
+                                <th>Frecuencia: Mi pareja me prohíbe que me junte o reúna con amistades</th>
+                                <th>Frecuencia: Mi pareja utiliza el dinero para controlarme</th>
+                                <th>Frecuencia: Mi pareja ha golpeado o pateado la pared, la puerta o algún mueble para
+                                    asustarme</th>
+                                <th>Frecuencia: Mi pareja me ha amenazado con dejarme.</th>
+                                <th>Frecuencia: He tenido miedo de mi pareja.</th>
+                                <th>Frecuencia: Mi pareja me ha forzado a tener relaciones sexuales cuando estoy
+                                    enfermo/a o está en riesgo mi salud o me siento mal.</th>
+                                <th>Frecuencia: Mi pareja se molesta con mis éxitos y mis logros.</th>
+                                <th>Frecuencia: Mi pareja me ha golpeado.</th>
+                                <th>Frecuencia: Mi pareja me prohíbe trabajar o seguir estudiando</th>
+                                <th>Frecuencia: Mi pareja me agrede verbalmente si no atiendo a mis hijos como él/ella
+                                    piensa que debería ser.</th>
+                                <th>Frecuencia: Mi pareja se enoja si no atiendo a mis hijos como él/ella piensa que
+                                    debería ser.</th>
+                                <th>Frecuencia: Mi pareja se enoja cuando le digo que no me alcanza el dinero que me da
+                                    o gano.</th>
+                                <th>Frecuencia: Mi pareja se enoja si no está la comida o el trabajo hecho cuando
+                                    él/ella cree que debería estar.</th>
+                                <th>Frecuencia: Mi pareja se pone celoso/a y sospecha de mis amistades.</th>
+                                <th>Frecuencia: Mi pareja administra el dinero sin tomarme en cuenta.</th>
+                                <th>Frecuencia: Mi pareja me chantajea con su dinero</th>
+                                <th>Frecuencia: Mi pareja ha llegado a insultarme.</th>
+                                <th>Frecuencia: Mi pareja me limita económicamente para mantenerme en casa o se enoja
+                                    cuando no aporto o doy el gasto que él/ella cree que debería ser.</th>
+                                <th>Frecuencia: Mi pareja se ha burlado de alguna parte de mi cuerpo.</th>
+                                <th>Frecuencia: Le he dicho es culpable de nuestros problemas.</th>
+                                <th>Frecuencia: He llegado a gritarle a mi pareja.</th>
+                                <th>Frecuencia: Me he enojado cuando me contradice o no está de acuerdo conmigo.</th>
+                                <th>Frecuencia: He llegado a insultar a mi pareja.</th>
+                                <th>Frecuencia: He amenazado a mi pareja con abandonarlo/la.</th>
+                                <th>Frecuencia: Cuando no atiende a los hijos como yo creo agredo verbalmente a mi
+                                    pareja.</th>
+                                <th>Frecuencia: No tomo en cuenta las necesidades sexuales de mi pareja</th>
+                                <th>Frecuencia: Le he prohibido a mi pareja que se junte o reúna con sus amistades.</th>
+                                <th>Frecuencia: He llegado a lastimar físicamente a mi pareja.</th>
+                                <th>Frecuencia: Me molesta que mi pareja gaste su propio dinero.</th>
+                                <th>Frecuencia: He exigido a mi pareja me dé explicaciones detalladas de la forma en que
+                                    gasta el dinero.</th>
+                                <th>Frecuencia: He dicho a mi pareja que es feo/a o poco atractivo/a</th>
+
+                                <th>Daño: Mi pareja me ha dicho que mi arreglo personal es desagradable.</th>
+                                <th>Daño: Mi pareja me ha empujado con fuerza.</th>
+                                <th>Daño: Mi pareja se enoja conmigo si no hago lo que él/ella quiere.</th>
+                                <th>Daño: Mi pareja me critica como amante</th>
+                                <th>Daño: Mi pareja me rechaza cuando quiero tener relaciones sexuales con él/ella.</th>
+                                <th>Daño: Mi pareja vigila todo lo que yo hago.</th>
+                                <th>Daño: Mi pareja ha dicho que soy feo/a o poco atractivo/a</th>
+                                <th>Daño: Mi pareja no toma en cuenta mis necesidades sexuales</th>
+                                <th>Daño: Mi pareja me prohíbe que me junte o reúna con amistades</th>
+                                <th>Daño: Mi pareja utiliza el dinero para controlarme</th>
+                                <th>Daño: Mi pareja ha golpeado o pateado la pared, la puerta o algún mueble para
+                                    asustarme</th>
+                                <th>Daño: Mi pareja me ha amenazado con dejarme.</th>
+                                <th>Daño: He tenido miedo de mi pareja.</th>
+                                <th>Daño: Mi pareja me ha forzado a tener relaciones sexuales cuando estoy enfermo/a o
+                                    está en riesgo mi salud o me siento mal.</th>
+                                <th>Daño: Mi pareja se molesta con mis éxitos y mis logros.</th>
+                                <th>Daño: Mi pareja me ha golpeado.</th>
+                                <th>Daño: Mi pareja me prohíbe trabajar o seguir estudiando</th>
+                                <th>Daño: Mi pareja me agrede verbalmente si no atiendo a mis hijos como él/ella piensa
+                                    que debería ser.</th>
+                                <th>Daño: Mi pareja se enoja si no atiendo a mis hijos como él/ella piensa que debería
+                                    ser.</th>
+                                <th>Daño: Mi pareja se enoja cuando le digo que no me alcanza el dinero que me da o
+                                    gano.</th>
+                                <th>Daño: Mi pareja se enoja si no está la comida o el trabajo hecho cuando él/ella cree
+                                    que debería estar.</th>
+                                <th>Daño: Mi pareja se pone celoso/a y sospecha de mis amistades.</th>
+                                <th>Daño: Mi pareja administra el dinero sin tomarme en cuenta.</th>
+                                <th>Daño: Mi pareja me chantajea con su dinero</th>
+                                <th>Daño: Mi pareja ha llegado a insultarme.</th>
+                                <th>Daño: Mi pareja me limita económicamente para mantenerme en casa o se enoja cuando
+                                    no aporto o doy el gasto que él/ella cree que debería ser.</th>
+                                <th>Daño: Mi pareja se ha burlado de alguna parte de mi cuerpo.</th>
+                                <th>Daño: Le he dicho es culpable de nuestros problemas.</th>
+                                <th>Daño: He llegado a gritarle a mi pareja.</th>
+                                <th>Daño: Me he enojado cuando me contradice o no está de acuerdo conmigo.</th>
+                                <th>Daño: He llegado a insultar a mi pareja.</th>
+                                <th>Daño: He amenazado a mi pareja con abandonarlo/la.</th>
+                                <th>Daño: Cuando no atiende a los hijos como yo creo agredo verbalmente a mi pareja.
+                                </th>
+                                <th>Daño: No tomo en cuenta las necesidades sexuales de mi pareja</th>
+                                <th>Daño: Le he prohibido a mi pareja que se junte o reúna con sus amistades.</th>
+                                <th>Daño: He llegado a lastimar físicamente a mi pareja.</th>
+                                <th>Daño: Me molesta que mi pareja gaste su propio dinero.</th>
+                                <th>Daño: He exigido a mi pareja me dé explicaciones detalladas de la forma en que gasta
+                                    el dinero.</th>
+                                <th>Daño: He dicho a mi pareja que es feo/a o poco atractivo/a</th>
+
+
+                                <th>Violencia Sufrida - Psicológica y Social - Frecuencia</th>
+                                <th>Violencia Sufrida - Psicológica y Social - Daño</th>
+                                <th>Violencia Sufrida - Física, Intimidación y Agresión - Frecuencia</th>
+                                <th>Violencia Sufrida - Física, Intimidación y Agresión - Daño</th>
+                                <th>Violencia Sufrida - Sexual - Frecuencia</th>
+                                <th>Violencia Sufrida - Sexual - Daño</th>
+                                <th>Violencia Sufrida - Económica - Frecuencia</th>
+                                <th>Violencia Sufrida - Económica - Daño</th>
+                                <th>* Violencia Sufrida General</th>
+                                <th>Violencia Ejercida - Psicológica - Frecuencia</th>
+                                <th>Violencia Ejercida - Psicológica - Daño</th>
+                                <th>Violencia Ejercida - Otro Tipo de Violencia - Frecuencia</th>
+                                <th>Violencia Ejercida - Otro Tipo de Violencia - Daño</th>
+                                <th>* Violencia Ejercida General</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="!data || !data.length">
+                                <td colspan="241">No hay registros</td>
+                            </tr>
+                            <tr *ngFor="let d of data">
+
+                                <td>
+                                    {{d.name}}
+                                </td>
+                                <td>
+                                    {{d.age}}
+                                </td>
+                                <td>
+                                    {{d.document_type_id}}
+                                </td>
+                                <td>
+                                    {{d.document}}
+                                </td>
+                                <td>
+                                    {{d.gender_id}}
+                                </td>
+                                <td>
+                                    {{d.birthdate_place}}
+                                </td>
+                                <td>
+                                    {{d.birthdate}}
+                                </td>
+                                <td>
+                                    {{d.civil_status_id}}
+                                </td>
+                                <td>
+                                    {{d.occupation}}
+                                </td>
+                                <td>
+                                    {{d.scholarship_id}}
+                                </td>
+                                <td>
+                                    {{d.city}}
+                                </td>
+                                <td>
+                                    {{d.email}}
+                                </td>
+                                <td>
+                                    {{d.socioeconomic}}
+                                </td>
+                                <td>
+                                    {{d.pandemic_affectation_way_id}}
+                                </td>
+                                <td>
+                                    {{d.sick_covid?'Sí':'No'}}
+                                </td>
+                                <td>
+                                    {{d.relative_covid?'Sí':'No'}}
+                                </td>
+                                <td>
+                                    {{d.vaccinate_covid?'Sí':'No'}}
+                                </td>
+                                <td>
+                                    {{d.applied_vaccine_id}}
+                                </td>
+                                <td>
+                                    {{d.full_dose?'Sí':'No'}}
+                                </td>
+                                <td>
+                                    {{d.reason_not_vaccinated_id}}
+                                </td>
+                                <td>
+                                    {{d.disability?'Sí':'No'}}
+                                </td>
+                                <td>
+                                    {{d.disability_type_id}}
+                                </td>
+                                <td>
+                                    {{d.psychoactive_substances_id}}
+                                </td>
+                                <td>
+                                    {{d.demographic_symptoms}}
+                                </td>
+
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--****************** UNIDAD FAMILIAR Y AMISTAD ***************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <td></td>
+                                <td>{{d.how_often_affected_unexpectedly_id}}</td>
+                                <td>{{d.how_often_felt_unable_control_your_life_id}}</td>
+                                <td>{{d.how_often_nervous_or_stressed_id}}</td>
+                                <td>{{d.how_often_ability_handle_personal_problems_id}}</td>
+                                <td>{{d.how_often_things_going_well_you_id}}</td>
+                                <td>{{d.how_often_cope_all_things_id}}</td>
+                                <td>{{d.how_often_control_difficulties_id}}</td>
+                                <td>{{d.how_often_all_under_control_id}}</td>
+                                <td>{{d.how_often_angry_out_control_id}}</td>
+                                <td>{{d.how_often_difficulties_cannot_overcome_id}}</td>
+
+                                <td>{{d.feel_nervous_anxious_id}}</td>
+                                <td>{{d.feel_scares_no_reason_id}}</td>
+                                <td>{{d.feel_angry_easily_or_panic_id}}</td>
+                                <td>{{d.feel_falling_apart_id}}</td>
+                                <td>{{d.feel_arms_legs_shake_id}}</td>
+                                <td>{{d.feel_bothered_headaches_neck_pain_id}}</td>
+                                <td>{{d.feel_week_easily_tired_id}}</td>
+                                <td>{{d.feel_hear_beating_fast_id}}</td>
+                                <td>{{d.feel_dizziness_bothers_id}}</td>
+                                <td>{{d.feel_faint_fainting_spells_id}}</td>
+                                <td>{{d.feel_numbness_tingling_fingers_toes_id}}</td>
+                                <td>{{d.feel_bother_stomach_aches_id}}</td>
+                                <td>{{d.feel_empty_bladder_id}}</td>
+                                <td>{{d.feel_red_hot_face_id}}</td>
+                                <td>{{d.feel_nightmares_id}}</td>
+
+                                <td>{{d.stop_being_sad_id}}</td>
+                                <td>{{d.felt_depressed_id}}</td>
+                                <td>{{d.thought_my_life_has_been_failure_id}}</td>
+                                <td>{{d.felt_nervous_id}}</td>
+                                <td>{{d.was_happy_id}}</td>
+                                <td>{{d.felt_alone_id}}</td>
+                                <td>{{d.enjoyed_life_id}}</td>
+                                <td>{{d.have_crying_crisis_id}}</td>
+                                <td>{{d.felt_sad_id}}</td>
+                                <td>{{d.felt_couldnt_go_on_id}}</td>
+
+
+                                <td>{{d.have_thought_life_not_worth_living_id}}</td>
+                                <td>{{d.have_wished_were_dead_id}}</td>
+                                <td>{{d.have_thought_ending_your_life_id}}</td>
+                                <td>{{d.have_tried_kill_yourself_id}}</td>
+
+                                <td>{{d.do_you_have_someone_talk_id}}</td>
+                                <td>{{d.do_you_have_friend_talk_id}}</td>
+                                <td>{{d.do_you_have_someone_family_solve_poblems_id}}</td>
+                                <td>{{d.have_friend_solve_personal_problem_id}}</td>
+                                <td>{{d.your_parents_show_love_affection_id}}</td>
+                                <td>{{d.do_you_have_friend_show_affection_id}}</td>
+                                <td>{{d.do_you_trust_family_things_worry_id}}</td>
+                                <td>{{d.do_you_trust_friend_things_worry_id}}</td>
+                                <td>{{d.someone_family_support_problems_school_id}}</td>
+                                <td>{{d.someone_friend_help_homework_work_id}}</td>
+                                <td>{{d.someone_friend_support_problems_school_id}}</td>
+                                <td>{{d.family_talk_problems_all_supports_id}}</td>
+                                <td>{{d.satisfied_support_family_id}}</td>
+                                <td>{{d.satisfied_support_friend_id}}</td>
+                                <td>{{d['_Unity_Estres']}}</td>
+                                <td>{{d['_Unity_Ansiedad']}}</td>
+                                <td>{{d['_Unity_Depresion']}}</td>
+                                <td>{{d['_Unity_Suicida']}}</td>
+                                <td>{{d['_Unity_Unidad']}}</td>
+
+
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--******* PITTSBURGH *************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <td></td>
+                                <td>
+                                    {{d.time_sleep_night | date: 'HHmm'}}
+                                </td>
+                                <td>
+                                    {{d.last_month_time_asleep_id}}
+                                </td>
+                                <td>
+                                    {{d.last_month_awaing_habitually_morning | date: 'HHmm'}}
+                                </td>
+                                <td>
+                                    {{d.last_month_hours_sleep_each_night}}
+                                </td>
+                                <td>
+                                    {{d.cant_asleep_first_half_hour_id}}
+                                </td>
+                                <td>
+                                    {{d.awaking_half_night_id}}
+                                </td>
+                                <td>
+                                    {{d.awaking_go_to_bathroom_id}}
+                                </td>
+                                <td>
+                                    {{d.cant_breathe_well_id}}
+                                </td>
+                                <td>
+                                    {{d.cough_loudly_id}}
+                                </td>
+                                <td>
+                                    {{d.cold_feel_id}}
+                                </td>
+                                <td>
+                                    {{d.heat_feel_id}}
+                                </td>
+                                <td>
+                                    {{d.have_nightmares_id}}
+                                </td>
+                                <td>
+                                    {{d.have_smells_id}}
+                                <td>
+                                    {{d.other_reasons_id}}
+                                </td>
+                                <td>
+                                    {{d.take_pill_id}}
+                                </td>
+                                <td>
+                                    {{d.last_month_problems_stay_awake_id}}
+                                </td>
+                                <td>
+                                    {{d.last_month_enthusiasm_id}}
+                                </td>
+                                <td>
+                                    {{d.last_month_sleep_quality_id}}
+                                </td>
+                                <td>{{d['Pittsburgh puntuación global - sumatoria']}}</td>
+                                <td>{{d['Pittsburgh puntuación global']}}</td>
+
+
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--****************** Cicardiana ***************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <td></td>
+                                <td>{{d['awake_hour_id']}}</td>
+                                <td>{{d['bed_down_hour_id']}}</td>
+                                <td>{{d['warning_alarm_clock_id']}}</td>
+                                <td>{{d['easy_awake_id']}}</td>
+                                <td>{{d['awake_first_half_hour_id']}}</td>
+                                <td>{{d['awake_appetite_first_half_hour_id']}}</td>
+                                <td>{{d['awake_feeling_first_half_hour_id']}}</td>
+                                <td>{{d['awake_not_commited_bed_down_id']}}</td>
+                                <td>{{d['awake_exercise_internal_clock_id']}}</td>
+                                <td>{{d['tired_bed_down_hour_id']}}</td>
+                                <td>{{d['performance_plan_test_hour_id']}}</td>
+                                <td>{{d['tired_sleep_id']}}</td>
+                                <td>{{d['bed_down_later_habitual_awake_id']}}</td>
+                                <td>{{d['stay_awake_guard_id']}}</td>
+                                <td>{{d['heavy_labor_id']}}</td>
+                                <td>{{d['heavy_exercise_id']}}</td>
+                                <td>{{d['choose_schedule_id']}}</td>
+                                <td>{{d['max_welfare_id']}}</td>
+                                <td>{{d['morning_evening_id']}}</td>
+                                <td>{{d['_Cicardian_']}}</td>
+
+
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--****************** AFECTACION ***************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <td></td>
+
+
+                                <td>{{d['many_times_feel_nervous_id']}}</td>
+                                <td>{{d['feel_confident_in_life_id']}}</td>
+                                <td>{{d['im_brave_id']}}</td>
+                                <td>{{d['feel_tired_last_months_id']}}</td>
+                                <td>{{d['worried_last_times_id']}}</td>
+                                <td>{{d['have_determination_want_it_id']}}</td>
+                                <td>{{d['feel_guilt_did_past_id']}}</td>
+                                <td>{{d['appasionate_things_i_do_id']}}</td>
+                                <td>{{d['many_situations_happiness_recent_times_id']}}</td>
+                                <td>{{d['angry_when_contradict_me_id']}}</td>
+                                <td>{{d['people_say_moody_id']}}</td>
+                                <td>{{d['lately_been_situations_angry_id']}}</td>
+                                <td>{{d['general_feel_strong_id']}}</td>
+                                <td>{{d['pleasure_experiences_new_things_id']}}</td>
+                                <td>{{d['feel_satisfied_myself_id']}}</td>
+                                <td>{{d['irritated_easily_id']}}</td>
+                                <td>{{d['im_brave_faced_challenge_id']}}</td>
+                                <td>{{d['im_happy_person_id']}}</td>
+                                <td>{{d['recent_times_felt_humiliated_id']}}</td>
+                                <td>{{d['feeling_sad_lately_id']}}</td>
+                                <td>{{d['_Affection_Positive_']}}</td>
+                                <td>{{d['_Affection_Negative_']}}</td>
+
+
+
+                                <!--********************************************-->
+                                <!--********************************************-->
+                                <!--****************** VIOLENCIA ***************-->
+                                <!--********************************************-->
+                                <!--********************************************-->
+
+                                <td></td>
+                                <td>{{d.frequency_my_partner_told_me_grooming_id}}</td>
+                                <td>{{d.frequency_my_partner_pushed_me_hard_id}}</td>
+                                <td>{{d.frequency_my_partner_gets_angry_what_wants_id}}</td>
+                                <td>{{d.frequency_my_partner_criticizes_me_lover_id}}</td>
+                                <td>{{d.frequency_my_partner_rejects_have_sex_id}}</td>
+                                <td>{{d.frequency_my_partner_monitors_everything_id}}</td>
+                                <td>{{d.frequency_my_partner_said_ugly_unattractive_id}}</td>
+                                <td>{{d.frequency_my_partner_take_account_sexual_id}}</td>
+                                <td>{{d.frequency_my_partner_forbids_friends_id}}</td>
+                                <td>{{d.frequency_my_partner_uses_money_control_me_id}}</td>
+                                <td>{{d.frequency_my_partner_hit_something_scare_me_id}}</td>
+                                <td>{{d.frequency_my_partner_threatened_leave_me_id}}</td>
+                                <td>{{d.frequency_i_have_afraid_partner_id}}</td>
+                                <td>{{d.frequency_my_partner_has_forced_have_sex_id}}</td>
+                                <td>{{d.frequency_my_partner_upset_successes_id}}</td>
+                                <td>{{d.frequency_my_partner_has_hit_me_id}}</td>
+                                <td>{{d.frequency_my_partner_forbids_work_studying_id}}</td>
+                                <td>{{d.frequency_my_partner_verbally_assaults_id}}</td>
+                                <td>{{d.frequency_my_partner_angry_children_should_id}}</td>
+                                <td>{{d.frequency_my_partner_angry_tell_money_id}}</td>
+                                <td>{{d.frequency_my_partner_gets_upset_food_works_id}}</td>
+                                <td>{{d.frequency_my_partner_gets_jealous_friends_id}}</td>
+                                <td>{{d.frequency_my_partner_manages_money_id}}</td>
+                                <td>{{d.frequency_my_partner_blackmails_me_money_id}}</td>
+                                <td>{{d.frequency_my_partner_has_come_insult_me_id}}</td>
+                                <td>{{d.frequency_my_partner_financially_angry_id}}</td>
+                                <td>{{d.frequency_my_partner_made_fun_some_part_body_id}}</td>
+                                <td>{{d.frequency_ive_told_hes_blame_our_problems_id}}</td>
+                                <td>{{d.frequency_i_have_come_yell_partner_id}}</td>
+                                <td>{{d.frequency_i_have_angry_contradicts_disagrees_id}}</td>
+                                <td>{{d.frequency_i_have_come_insult_my_partner_id}}</td>
+                                <td>{{d.frequency_i_have_threatened_partner_leave_id}}</td>
+                                <td>{{d.frequency_when_he_verbally_attack_my_partner_id}}</td>
+                                <td>{{d.frequency_i_take_sexual_needs_partner_id}}</td>
+                                <td>{{d.frequency_i_have_forbidden_partner_friends_id}}</td>
+                                <td>{{d.frequency_i_have_physically_hurt_partner_id}}</td>
+                                <td>{{d.frequency_it_bothers_my_partner_spends_money_id}}</td>
+                                <td>{{d.frequency_i_have_required_my_partner_spends_id}}</td>
+                                <td>{{d.frequency_i_have_told_my_partner_is_ugly_id}}</td>
+                                <td>{{d.damage_my_partner_told_me_grooming_id}}</td>
+                                <td>{{d.damage_my_partner_pushed_me_hard_id}}</td>
+                                <td>{{d.damage_my_partner_gets_angry_what_wants_id}}</td>
+                                <td>{{d.damage_my_partner_criticizes_me_lover_id}}</td>
+                                <td>{{d.damage_my_partner_rejects_have_sex_id}}</td>
+                                <td>{{d.damage_my_partner_monitors_everything_id}}</td>
+                                <td>{{d.damage_my_partner_said_ugly_unattractive_id}}</td>
+                                <td>{{d.damage_my_partner_take_account_sexual_id}}</td>
+                                <td>{{d.damage_my_partner_forbids_friends_id}}</td>
+                                <td>{{d.damage_my_partner_uses_money_control_me_id}}</td>
+                                <td>{{d.damage_my_partner_hit_something_scare_me_id}}</td>
+                                <td>{{d.damage_my_partner_threatened_leave_me_id}}</td>
+                                <td>{{d.damage_i_have_afraid_partner_id}}</td>
+                                <td>{{d.damage_my_partner_has_forced_have_sex_id}}</td>
+                                <td>{{d.damage_my_partner_upset_successes_id}}</td>
+                                <td>{{d.damage_my_partner_has_hit_me_id}}</td>
+                                <td>{{d.damage_my_partner_forbids_work_studying_id}}</td>
+                                <td>{{d.damage_my_partner_verbally_assaults_id}}</td>
+                                <td>{{d.damage_my_partner_angry_children_should_id}}</td>
+                                <td>{{d.damage_my_partner_angry_tell_money_id}}</td>
+                                <td>{{d.damage_my_partner_gets_upset_food_works_id}}</td>
+                                <td>{{d.damage_my_partner_gets_jealous_friends_id}}</td>
+                                <td>{{d.damage_my_partner_manages_money_id}}</td>
+                                <td>{{d.damage_my_partner_blackmails_me_money_id}}</td>
+                                <td>{{d.damage_my_partner_has_come_insult_me_id}}</td>
+                                <td>{{d.damage_my_partner_financially_angry_id}}</td>
+                                <td>{{d.damage_my_partner_made_fun_some_part_body_id}}</td>
+                                <td>{{d.damage_ive_told_hes_blame_our_problems_id}}</td>
+                                <td>{{d.damage_i_have_come_yell_partner_id}}</td>
+                                <td>{{d.damage_i_have_angry_contradicts_disagrees_id}}</td>
+                                <td>{{d.damage_i_have_come_insult_my_partner_id}}</td>
+                                <td>{{d.damage_i_have_threatened_partner_leave_id}}</td>
+                                <td>{{d.damage_when_he_verbally_attack_my_partner_id}}</td>
+                                <td>{{d.damage_i_take_sexual_needs_partner_id}}</td>
+                                <td>{{d.damage_i_have_forbidden_partner_friends_id}}</td>
+                                <td>{{d.damage_i_have_physically_hurt_partner_id}}</td>
+                                <td>{{d.damage_it_bothers_my_partner_spends_money_id}}</td>
+                                <td>{{d.damage_i_have_required_my_partner_spends_id}}</td>
+                                <td>{{d.damage_i_have_told_my_partner_is_ugly_id}}</td>
+
+
+                                <td> {{d["_Violence_Suffered_Psychological_Social_Frequency_"]}}</td>
+                                <td> {{d["_Violence_Suffered_Psychological_Social_Damage_"]}}</td>
+                                <td> {{d["_Violence_Suffered_Physical_Intimidation_Assault_Frequency_"]}}</td>
+                                <td> {{d["_Violence_Suffered_Physical_Intimidation_Assault_Damage_"]}}</td>
+                                <td> {{d["_Violence_Suffered_Sexual_Frequency_"]}}</td>
+                                <td> {{d["_Violence_Suffered_Sexual_Damage_"]}}</td>
+                                <td> {{d["_Violence_Suffered_Economic_Frequency_"]}}</td>
+                                <td> {{d["_Violence_Suffered_Economic_Damage_"]}}</td>
+                                <td> {{d["_Violence_Suffered_General_"]}}</td>
+                                <td> {{d["_Violence_Exerted_Psychological_Frequency_"]}}</td>
+                                <td> {{d["_Violence_Exerted_Psychological_Damage_"]}}</td>
+                                <td> {{d["_Violence_Exerted_Another_Frequency_"]}}</td>
+                                <td> {{d["_Violence_Exerted_Another_Damage_"]}}</td>
+                                <td> {{d["_Violence_Exerted_General_"]}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 mb-5"></div>
+</app-principal>
+
+<app-loading [active]="loading"></app-loading>

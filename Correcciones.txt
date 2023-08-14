@@ -1,0 +1,9 @@
+*1. calama corregir
+*2. Debe ser el mismo documento de inicio como el demografico
+*3. Bloquear el campo de documento en demografico
+*4. Limite de 24 horas en la pregunta 28 (Horas de dormir) (Opcional podría ser desplegable con las 24 horas)
+*5. Pregunta 25 y 26 verificar que la hora militar se muestre como debe ser, las 08:00 PM la esta mostrando como 0800 pero debe ser 2000
+*6. Revisar el resultado del registro con documento 112266 debe ser Buena Calidad y tiene Mala calidad en el sistema
+*7. Bloquear la pregunta 19 por la dosis completa cuando dice que no se ha vacunado
+*8. Pregunta 24 de sintomas, seleccionar varias opciones
+9 Continuar con preferencia cicardiana y el primer cuestionario despues de pittsburg

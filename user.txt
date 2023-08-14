@@ -1,0 +1,3 @@
+CREATE USER 'saludmentalu'@'localhost' IDENTIFIED BY 'fegergberthtrhbtrnbrtgrthbrthyrhtthgergegerget543g45g435g45g4g45g54g';
+GRANT ALL PRIVILEGES ON saludmentalunimag.* TO 'saludmentalu'@'localhost';
+FLUSH PRIVILEGES;

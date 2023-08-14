@@ -1,0 +1,54 @@
+<header role="banner">
+  <div class="toolbar">
+  </div>
+  <div class="nav-bar">
+    <div class="brand">
+      <a href="/">
+        <img src="https://cdn.unimagdalena.edu.co/images/escudo/bg_dark/default.png"
+          alt="Escudo de la Universidad del Magdalena">
+        <h1>Universidad del <span>Magdalena</span> </h1>
+      </a>
+    </div>
+  </div>
+  <nav *ngIf="valid" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" *ngIf="menu&&menu.length">
+      <ul class="navbar-nav">
+        <li *ngFor="let m of menu" class="nav-item active">
+          <a class="nav-link" (click)="goMenu(m)">
+            <i class="fa fa-{{m.icon}}"></i>&nbsp;
+            {{m.name}}
+          </a>
+        </li>
+        <!-- <li class="nav-item active" *ngIf="data!=null&&data.role_id==1">
+          <a class="nav-link" (click)="newRow()">
+            <i class="fa fa-home"></i>&nbsp;
+            Nuevo registro</a>
+        </li>
+        <li class="nav-item" *ngIf="data!=null&&data.role_id==1">
+          <a class="nav-link" [routerLink]="['/families']">
+            <i class="fa fa-users"></i>&nbsp;
+            Familias</a>
+        </li>
+        <li class="nav-item" *ngIf="data!=null&&data.role_id==1">
+          <a class="nav-link" [routerLink]="['/reports']">
+            <i class="fa fa-file"></i>&nbsp;
+            Reporte <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" *ngIf="data!=null&&data.role_id==1">
+          <a class="nav-link" [routerLink]="['/profile']">
+            <i class="fa fa-user"></i>&nbsp;
+            Perfil</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()">
+            <i class="fa fa-sign-out"></i>&nbsp;Cerrar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<app-modal-consent [(active)]="active" [data]="consent" (confirm)="confirm()"></app-modal-consent>

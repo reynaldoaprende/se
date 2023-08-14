@@ -1,0 +1,184 @@
+<app-loading [active]="loading"></app-loading>
+
+<form #top  #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+                78.&nbsp;<app-label text="Durante el último mes, ¿a qué hora se acostó normalmente por la noche?"></app-label>
+                <app-input #time_sleep_night="ngModel" [required]="true" [type]="'time'" [(ngModel)]="data.time_sleep_night" [name]="'time_sleep_night'"  [class]="'form-control'"></app-input>
+                <small *ngIf="time_sleep_night.errors&&time_sleep_night.errors.required&&time_sleep_night.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                79.&nbsp;<app-label text="Durante el último mes, ¿cuánto tiempo (en minutos) le tomó quedarse dormido en promedio? "></app-label>
+                <app-select #last_month_time_asleep_id="ngModel" [(ngModel)]="data.last_month_time_asleep_id" [name]="'last_month_time_asleep_id'" [required]="true"
+                    [data]="asleep_time" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="last_month_time_asleep_id.errors&&last_month_time_asleep_id.errors.required&&last_month_time_asleep_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                80.&nbsp;<app-label text="Durante el último mes, ¿a qué hora se despertó habitualmente por la mañana? "></app-label>
+                <app-input #last_month_awaing_habitually_morning="ngModel" [required]="true" [type]="'time'" [(ngModel)]="data.last_month_awaing_habitually_morning" [name]="'last_month_awaing_habitually_morning'"  [class]="'form-control'"></app-input>
+                <small *ngIf="last_month_awaing_habitually_morning.errors&&last_month_awaing_habitually_morning.errors.required&&last_month_awaing_habitually_morning.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                81.&nbsp;<app-label text="Durante el último mes, ¿Cuántas horas durmió cada noche? (el tiempo puede ser diferente de la cantidad de horas que estuvo en la cama)"></app-label>
+                <app-input #last_month_hours_sleep_each_night="ngModel" pattern="^$|^([0-9]|[1-2][0-4])?" [required]="true" [type]="'number'" [min]="0" [max]="24" [(ngModel)]="data.last_month_hours_sleep_each_night" [name]="'last_month_hours_sleep_each_night'"  [class]="'form-control'"></app-input>
+                <small *ngIf="last_month_hours_sleep_each_night.errors&&last_month_hours_sleep_each_night.errors.required&&last_month_hours_sleep_each_night.touched" class="text-danger">* Campo requerido</small>
+                <small *ngIf="last_month_hours_sleep_each_night.errors&&last_month_hours_sleep_each_night.errors.pattern&&last_month_hours_sleep_each_night.touched" class="text-danger">* Horas inválidas</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                82.&nbsp;<app-label text="Durante el mes pasado, ¿cuántas veces ha tenido usted problemas para dormir a causa de...?"></app-label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                a.&nbsp;<app-label text="No poder quedarse dormido en la primera media hora"></app-label>
+                <app-select #cant_asleep_first_half_hour_id="ngModel" [(ngModel)]="data.cant_asleep_first_half_hour_id" [name]="'cant_asleep_first_half_hour_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="cant_asleep_first_half_hour_id.errors&&cant_asleep_first_half_hour_id.errors.required&&cant_asleep_first_half_hour_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                b.&nbsp;<app-label text="Despertarse durante en el medio de la noche o de madrugada"></app-label>
+                <app-select #awaking_half_night_id="ngModel" [(ngModel)]="data.awaking_half_night_id" [name]="'awaking_half_night_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="awaking_half_night_id.errors&&awaking_half_night_id.errors.required&&awaking_half_night_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                c.&nbsp;<app-label text="Tener que levantarse para ir al baño"></app-label>
+                <app-select #awaking_go_to_bathroom_id="ngModel" [(ngModel)]="data.awaking_go_to_bathroom_id" [name]="'awaking_go_to_bathroom_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="awaking_go_to_bathroom_id.errors&&awaking_go_to_bathroom_id.errors.required&&awaking_go_to_bathroom_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                d.&nbsp;<app-label text="No poder respirar bien"></app-label>
+                <app-select #cant_breathe_well_id="ngModel" [(ngModel)]="data.cant_breathe_well_id" [name]="'cant_breathe_well_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="cant_breathe_well_id.errors&&cant_breathe_well_id.errors.required&&cant_breathe_well_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                e.&nbsp;<app-label text="Toser o roncar ruidosamente"></app-label>
+                <app-select #cough_loudly_id="ngModel" [(ngModel)]="data.cough_loudly_id" [name]="'cough_loudly_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="cough_loudly_id.errors&&cough_loudly_id.errors.required&&cough_loudly_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                f.&nbsp;<app-label text="Sentir frío"></app-label>
+                <app-select #cold_feel_id="ngModel" [(ngModel)]="data.cold_feel_id" [name]="'cold_feel_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="cold_feel_id.errors&&cold_feel_id.errors.required&&cold_feel_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                g.&nbsp;<app-label text="Sentir calor"></app-label>
+                <app-select #heat_feel_id="ngModel" [(ngModel)]="data.heat_feel_id" [name]="'heat_feel_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="heat_feel_id.errors&&heat_feel_id.errors.required&&heat_feel_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                h.&nbsp;<app-label text="Tener 'malos sueños' o pesadillas "></app-label>
+                <app-select #have_nightmares_id="ngModel" [(ngModel)]="data.have_nightmares_id" [name]="'have_nightmares_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_nightmares_id.errors&&have_nightmares_id.errors.required&&have_nightmares_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                i.&nbsp;<app-label text="Tener dolores"></app-label>
+                <app-select #have_smells_id="ngModel" [(ngModel)]="data.have_smells_id" [name]="'have_smells_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_smells_id.errors&&have_smells_id.errors.required&&have_smells_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="ml-4 form-group">
+                j.&nbsp;<app-label text="Otras razones"></app-label>
+                <app-select #other_reasons_id="ngModel" [(ngModel)]="data.other_reasons_id" [name]="'other_reasons_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="other_reasons_id.errors&&other_reasons_id.errors.required&&other_reasons_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                83.&nbsp;<app-label text="Durante el último mes, ¿ha tomado alguna pastilla para dormir, recetada por un médico o indicada por otra persona (farmacéutico, amigo, familiar) o incluso por su cuenta?"></app-label>
+                <app-select #take_pill_id="ngModel" [(ngModel)]="data.take_pill_id" [name]="'take_pill_id'" [required]="true"
+                    [data]="likert_week_month" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="last_month_problems_stay_awake_id.errors&&last_month_problems_stay_awake_id.errors.required&&last_month_problems_stay_awake_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                84.&nbsp;<app-label text="Durante el último mes, ¿cuántas veces ha tenido problemas para permanecer despierto mientras conducía, comía, trabajaba, estudiaba o desarrollaba alguna otra actividad social?"></app-label>
+                <app-select #last_month_problems_stay_awake_id="ngModel" [(ngModel)]="data.last_month_problems_stay_awake_id" [name]="'last_month_problems_stay_awake_id'" [required]="true"
+                    [data]="likert_problems" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="last_month_problems_stay_awake_id.errors&&last_month_problems_stay_awake_id.errors.required&&last_month_problems_stay_awake_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                85.&nbsp;<app-label text="Durante el último mes, ¿se sintió mal o con falta de entusiasmo para realizar sus actividades diarias?"></app-label>
+                <app-select #last_month_enthusiasm_id="ngModel" [(ngModel)]="data.last_month_enthusiasm_id" [name]="'last_month_enthusiasm_id'" [required]="true"
+                    [data]="likert_problems" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="last_month_enthusiasm_id.errors&&last_month_enthusiasm_id.errors.required&&last_month_enthusiasm_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                86.&nbsp;<app-label text="Durante el último mes, ¿cómo calificaría la calidad de su sueño?"></app-label>
+                <app-select #last_month_sleep_quality_id="ngModel" [(ngModel)]="data.last_month_sleep_quality_id" [name]="'last_month_sleep_quality_id'" [required]="true"
+                    [data]="likert_good_bad" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="last_month_sleep_quality_id.errors&&last_month_sleep_quality_id.errors.required&&last_month_sleep_quality_id.touched" class="text-danger">* Campo requerido</small>
+                </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Siguiente'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

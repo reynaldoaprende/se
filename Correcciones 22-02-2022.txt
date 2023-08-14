@@ -1,0 +1,22 @@
+cambiar la palabra "estres" por "estres percibido"
+y 2 que no salen todos los resultado que deberian salir
+para los 4 primeros test deberia salir
+
+1 test 
+Estrés percibido (SI)
+Ansiedad (SI)
+Depresión (SI)
+Conducta Suicida (NO sale)
+Unidad Familiar y Amistad (SI)
+del 2 test de pitsburg si sale el resultado,
+del 3 test preferencia circadiana
+deberia salir alguna de 
+Vespertino extremo 	Vespertino moderado 	Intermedio	Matutino Moderado	Matutino Extremo
+pero no sale el resultado de esta
+y el 4 test , afecto positivo y negativo si salen
+en resumen no salen los siguientes resultados:
+1 test 
+conducta suicida
+3 test 
+el resultado en general no sale ninguno
+Y si se puede colocar el 5 test pues sería bueno para hacer las pruebas de resultados

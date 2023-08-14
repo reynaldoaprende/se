@@ -1,0 +1,75 @@
+<app-loading [active]="loading"></app-loading>
+<div class="row">
+    <div class="col">
+        <div class="form-group text-center">
+            <app-title>Tu perfil</app-title>
+        </div>
+    </div>
+</div>
+
+<form  #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <app-input [disabled]="true" [type]="'text'" [(ngModel)]="data.email" [name]="'email'"  [class]="'form-control'"></app-input>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="document">Número de documento de identidad</label>
+                <app-input [required]="true" [type]="'number'" [(ngModel)]="data.document" [class]="'form-control'" [name]="'document'" [placeholder]="'Documento de identidad'"></app-input>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <label for="name">Nombres</label>
+                <app-input [required]="true" [type]="'text'" [(ngModel)]="data.name" [name]="'name'"  [class]="'form-control'" [placeholder]="'Cúal es tu nombre?'"></app-input>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <label for="last_name">Apellidos</label>
+                <app-input [required]="true" [type]="'text'" [(ngModel)]="data.last_name" [name]="'last_name'"  [class]="'form-control'" [placeholder]="'¿Cuál es tu apellido?'"></app-input>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="address">Dirección</label>
+                <app-input #address="ngModel" [required]="true" [name]="'address'" [type]="'text'" [(ngModel)]="data.address" [class]="'form-control'" [placeholder]="'Ingresa tu dirección'"></app-input>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <app-input #phone="ngModel" [required]="true" [name]="'phone'" [type]="'number'" [(ngModel)]="data.phone" [class]="'form-control'" [placeholder]="'Ingresa tu teléfono'"></app-input>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="password">Nueva contraseña (opcional)</label>
+                <app-input #password="ngModel" [name]="'passwordprofile'" [type]="'password'" [(ngModel)]="data.password" [class]="'form-control'" [placeholder]="'Ingresa tu contraseña'"></app-input>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Guardar'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

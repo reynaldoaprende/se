@@ -1,0 +1,13 @@
+<div id="modal-component" class="modal {{active?'fade show':''}}" [ngStyle]="{'padding-right': '17px', 'display': active?'block':''}" tabindex="-1" role="dialog">
+  <div class="modal-dialog {{type}}" role="document">
+      <div class="modal-content">
+          <div class="modal-body">
+            <button *ngIf="allowClose" type="button" class="close" (click)="close()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <ng-content></ng-content>
+          </div>
+      </div>
+  </div>
+</div>
+<div id="backdrop-component" class="{{active?'modal-backdrop fade show':''}}" [ngStyle]="{'display': active?'block':''}"></div>

@@ -1,0 +1,50 @@
+<app-loading [active]="loading"></app-loading>
+
+<form #top #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                XXXX.&nbsp;<app-label
+                    text="Pregunta XXXX">
+                </app-label>
+                <app-select #xxxx_id="ngModel" [(ngModel)]="data.xxxx_id"
+                    [name]="'xxxx_id'" [required]="true" [data]="list_xxxx" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+
+                <small
+                    *ngIf="xxxx_id.errors&&xxxx_id.errors.required&&xxxx_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                YYYY.&nbsp;<app-label
+                    text="Pregunta YYYY">
+                </app-label>
+                <app-select #yyyy_id="ngModel" [(ngModel)]="data.yyyy_id"
+                    [name]="'yyyy_id'" [required]="true" [data]="list_yyyy" [name_field]="'name'"
+                    [value_field]="'id'" [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small
+                    *ngIf="yyyy_id.errors&&yyyy_id.errors.required&&yyyy_id.touched"
+                    class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+      
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Siguiente'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>

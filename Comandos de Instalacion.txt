@@ -1,0 +1,321 @@
+-- Instalar PHP 7.4
+sudo yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum -y install https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo yum -y install yum-utils
+sudo yum-config-manager --enable remi-php74
+sudo yum update
+sudo yum install php php-cli
+sudo yum install php  php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
+sudo nano /etc/php.ini
+	"Busque la línea " ; cgi.fix_pathinfo = 1 ". Descomente y cambie el valor de esta manera: cgi.fix_pathinfo=0"
+sudo nano /etc/php-fpm.d/www.conf
+	"listen = /var/run/php-fpm/php-fpm.sock"
+	"listen.owner = nginx"
+ 	"listen.group = nginx"
+ 	"user = nginx"
+ 	"group = nginx"
+ sudo systemctl start php-fpm
+ sudo systemctl enable php-fpm
+
+-- Increase size PHP
+sudo nano /etc/php.ini
+	upload_max_filesize = 1000M
+	post_max_size = 1000M
+	max_file_uploads = 25
+
+
+--Instalar Composer
+sudo yum -y update
+sudo yum install php-cli php-zip wget unzip
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+--Instalar NGINX
+sudo yum install epel-release
+yum install nginx
+systemctl start nginx
+systemctl status nginx
+sudo mkdir /etc/nginx/sites-available
+sudo mkdir /etc/nginx/sites-enabled
+sudo firewall-cmd --permanent --add-port=80/tcp
+sudo firewall-cmd --permanent --add-port=443/tcp
+sudo firewall-cmd --reload
+
+--Instalar Node
+sudo yum -y update
+curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -
+sudo yum install -y nodejs
+
+--Instalar Angular
+sudo yum -y update
+npm install -g @angular/cli@latest
+
+--Instalar MySQL
+sudo yum install wget
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+chmod +x mariadb_repo_setu
+sudo ./mariadb_repo_setup
+sudo yum install MariaDB-server
+sudo systemctl start mariadb.service
+sudo mariadb-secure-installation
+La contraseña configurada para root es: 123456Ab*
+
+--Crear usuario de la aplicación
+CREATE USER 'saludmental'@'localhost' IDENTIFIED BY 'saludmentalunimaglamejormaneradecuidartumente';
+GRANT ALL PRIVILEGES ON saludmentalunimag.* TO 'saludmental'@'localhost';
+FLUSH PRIVILEGES;
+
+--phpMyAdmin
+sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install --enablerepo=remi-php73 phpmyadmin
+chmod -R 777 /var/lib/php/session
+sudo nano /etc/nginx/conf.d/phpMyAdmin.conf
+	"
+		server {
+	        listen   8008;
+          server_name sgrapp-saludmental.unimagdalena.edu.co;
+          client_max_body_size 100M;
+	        root /usr/share/phpMyAdmin;
+
+		    location / {
+		        index  index.php;
+		    }
+
+			## Images and static content is treated different
+		        location ~* ^.+.(jpg|jpeg|gif|css|png|js|ico|xml)$ {
+		        access_log        off;
+		        expires           30d;
+		    }
+
+		    location ~ /\.ht {
+		        deny  all;
+		    }
+
+		    location ~ /(libraries|setup/frames|setup/libs) {
+		        deny all;
+		        return 404;
+		    }
+
+		    location ~ \.php$ {
+		        include /etc/nginx/fastcgi_params;
+		        fastcgi_pass 127.0.0.1:9000;
+		        fastcgi_index index.php;
+		        fastcgi_param SCRIPT_FILENAME /usr/share/phpMyAdmin$fastcgi_script_name;
+		    }
+		}
+	"
+firewall-cmd --permanent --add-service=http
+firewall-cmd --reload
+sudo firewall-cmd --permanent --add-port=8008/tcp
+sudo firewall-cmd --reload
+sudo ln -s /usr/share/phpMyAdmin /usr/share/nginx/html/phpMyAdmin
+sudo systemctl reload nginx
+sudo systemctl restart php-fpm
+
+--Instalar GIT
+sudo yum install git
+
+--Instalar proyecto
+chmod -R 777 /usr/share/nginx/html
+git clone https://gitlab.com/evalderrama/saludmentalunimag.git
+cd /usr/share/nginx/html/saludmentalunimag/api/
+sudo chmod -R o+w storage
+sudo chmod -R 777 storage
+sudo chmod -R o+w public
+sudo chmod -R 777 public
+
+chcon -R -t httpd_sys_rw_content_t public
+composer install
+cp .env.example .env
+nano .env/
+	DB_CONNECTION=mysql
+	DB_HOST=localhost
+	DB_PORT=3306
+	DB_DATABASE=saludmentalunimag
+	DB_USERNAME=saludmental
+	DB_PASSWORD=saludmentalunimaglamejormaneradecuidartumente
+php artisan jwt:secret
+php artisan migrate:refresh --seed
+setenforce 0
+chcon -R -t httpd_sys_rw_content_t storage
+php artisan key:generate
+
+cd /usr/share/nginx/html/saludmentalunimag/web
+npm install
+ng build --aot --prod
+
+--Configurando la App con Nginx
+sudo nano /etc/nginx/sites-available/sgrsaludmental.unimagdalena.edu.co.conf
+server {
+    listen 80;
+    listen [::]:80;
+    server_name sgrsaludmental.unimagdalena.edu.co;
+    client_max_body_size 1000M;
+
+    root   /usr/share/nginx/html/saludmental_landing/;
+    index index.php index.html index.htm;
+
+    location /{
+         try_files $uri $uri/ /index.php$is_args$args;
+    }
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+    location ~ \.php$ {
+            include /etc/nginx/fastcgi_params;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param  SCRIPT_FILENAME   $document_root$fastcgi_script_name;
+    }
+
+}
+sudo nano /etc/nginx/sites-available/api-saludmental.unimagdalena.edu.co.conf
+server {
+    listen 80;
+    listen [::]:80;
+    server_name sgrapi-saludmental.unimagdalena.edu.co;
+
+    root   /usr/share/nginx/html/saludmental/api/public;
+    index index.php index.html index.htm;
+
+    location /{
+         try_files $uri $uri/ /index.php$is_args$args;
+    }
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+    location ~ \.php$ {
+            include /etc/nginx/fastcgi_params;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param  SCRIPT_FILENAME   $document_root$fastcgi_script_name;
+    }
+
+}
+sudo nano /etc/nginx/sites-available/app-saludmental.unimagdalena.edu.co.conf
+server {
+    listen 80;
+    listen [::]:80;
+    server_name sgrapp-saludmental.unimagdalena.edu.co;
+
+    location / {
+        root   /usr/share/nginx/html/saludmental/app_production;
+        index index.php index.html index.htm;
+        try_files $uri $uri/ /index.html$is_args$args;
+
+    }
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+
+}
+sudo ln -s /etc/nginx/sites-available/app-saludmental.unimagdalena.edu.co.conf /etc/nginx/sites-enabled/app-saludmental.unimagdalena.edu.co.conf
+sudo ln -s /etc/nginx/sites-available/api-saludmental.unimagdalena.edu.co.conf /etc/nginx/sites-enabled/api-saludmental.unimagdalena.edu.co.conf
+sudo ln -s /etc/nginx/sites-available/sgrsaludmental.unimagdalena.edu.co.conf /etc/nginx/sites-enabled/sgrsaludmental.unimagdalena.edu.co.conf
+
+
+sudo firewall-cmd --permanent --add-port=8008/tcp
+sudo firewall-cmd --permanent --add-port=8009/tcp
+sudo firewall-cmd --reload
+sudo systemctl reload nginx
+
+--Instalar Cerbot
+ sudo yum install snapd
+ sudo systemctl enable --now snapd.socket
+ sudo ln -s /var/lib/snapd/snap /snap
+ sudo snap install --classic certbot
+ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+--Install Wordpress Database
+CREATE DATABASE wordpress CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY '123456Ab*';
+FLUSH PRIVILEGES;
+EXIT;
+
+--Install Wordpress
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
+tar xf latest.tar.gz
+mkdir /usr/share/nginx/html/saludmental_landing
+sudo mv /tmp/wordpress/* /usr/share/nginx/html/saludmental_landing/
+sudo chown -R nginx: /usr/share/nginx/html/saludmental_landing
+sudo chown -R nginx: /usr/share/nginx/html/saludmental_landing/wp-content/uploads
+
+
+--Credentials Wordpress
+User: saludmentaluser
+Password: mx#qd(XAqZZATWkoefGR
+
+--Install FTP Pure-FTPD
+sudo yum update
+sudo yum install pure-ftpd
+sudo nano /etc/pure-ftpd/pure-ftpd.conf
+   ChrootEveryone              yes
+   MaxClientsNumber            50
+   MaxClientsPerIP             2
+   VerboseLog                  yes
+   AnonymousOnly               no
+   NoAnonymous                 yes
+   MaxIdleTime                 15
+   MySQLConfigFile             /etc/pure-ftpd/pureftpd-mysql.conf
+   PAMAuthentication    	no
+   UnixAuthentication     	no
+
+sudo nano /etc/pure-ftpd/pureftpd-mysql.conf
+   MYSQLSocket      /var/lib/mysql/mysql.sock
+   MYSQLUser       pureftpd
+   MYSQLPassword   123456Ab*
+   MYSQLDatabase   pureftpd
+   MYSQLCrypt      md5
+
+sudo groupadd -g 2001 ftpgroup
+sudo useradd -u 2001 -s /bin/false -d /bin/null -c "pureftpd user" -g ftpgroup ftpuser
+
+
+sudo firewall-cmd --permanent --zone=public --add-service=ftp
+sudo firewall-cmd --reload
+sudo chown -R ftpuser:ftpgroup /usr/share/nginx/html/saludmental_landing
+sudo chmod g+w -R /usr/share/nginx/html/saludmental_landing
+
+
+
+---Settings Pure-FTPD and MariaDB
+CREATE DATABASE pureftpd;
+GRANT ALL ON pureftpd.* to 'pureftpd'@'localhost' IDENTIFIED BY '123456Ab*';
+FLUSH PRIVILEGES;
+use pureftpd;
+CREATE TABLE `users` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `User` varchar(32) NOT NULL DEFAULT '',
+  `Password` varchar(64) NOT NULL DEFAULT '',
+  `Uid` int(3) NOT NULL DEFAULT '500',
+  `Gid` int(3) NOT NULL DEFAULT '500',
+  `Dir` varchar(255) NOT NULL DEFAULT '',
+  `QuotaSize` int(4) NOT NULL DEFAULT '50',
+  `Status` enum('0','1') NOT NULL DEFAULT '1',
+  `ULBandwidth` int(2) NOT NULL DEFAULT '100',
+  `DLBandwidth` int(2) NOT NULL DEFAULT '100',
+  `Date` date NOT NULL DEFAULT '0000-00-00',
+  `LastModif` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `User` (`User`),
+  KEY `Uid` (`Uid`),
+  KEY `Gid` (`Gid`),
+  KEY `Dir` (`Dir`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO `users` (`User`, `Password`, `Uid`, `Gid`, `Dir`, `QuotaSize`,
+`Status`, `ULBandwidth`, `DLBandwidth`, `Date`, `LastModif`)
+VALUES ('saludmental', md5('123456Ab*'), '1001', '1001', '/home/pureftpduser',
+'20', 2, '10', '10', now(), '');
+
+
+sudo systemctl enable pure-ftpd.service
+sudo systemctl start pure-ftpd.service

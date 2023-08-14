@@ -1,0 +1,20 @@
+<!-- <div class="back-loading {{active?'active':'not-active'}}"></div>
+<div class="loading {{active?'active':'not-active'}}">
+    <div class="loading-title">
+        Cargando...
+    </div>
+    <div class="loading-image">
+    </div>
+</div> -->
+
+<div class="modal {{active?'fade show':''}}" [ngStyle]="{'padding-right': '17px', 'display': active?'block':''}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body loading">
+                <div class="loading-image" [ngStyle]="{'background-image':'url(' + image + ')'}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="{{active?'modal-backdrop fade show':''}}" [ngStyle]="{'display': active?'block':''}"></div>

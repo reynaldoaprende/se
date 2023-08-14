@@ -1,0 +1,500 @@
+<app-loading [active]="loading"></app-loading>
+
+<form #top  #form="ngForm" name="form" novalidate class="form-user" (ngSubmit)="store(form)">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+                25.&nbsp;<app-label text="¿Con qué frecuencia ha estado afectado por algo que ha ocurrido inesperadamente?"></app-label>
+                <app-select #how_often_affected_unexpectedly_id="ngModel" [(ngModel)]="data.how_often_affected_unexpectedly_id" [name]="'how_often_affected_unexpectedly_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                <small *ngIf="how_often_affected_unexpectedly_id.errors&&how_often_affected_unexpectedly_id.errors.required&&how_often_affected_unexpectedly_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                26.&nbsp;<app-label text="¿Con qué frecuencia se ha sentido incapaz de controlar las cosas importantes en su vida?"></app-label>
+                <app-select #how_often_felt_unable_control_your_life_id="ngModel" [(ngModel)]="data.how_often_felt_unable_control_your_life_id" [name]="'how_often_felt_unable_control_your_life_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_felt_unable_control_your_life_id.errors&&how_often_felt_unable_control_your_life_id.errors.required&&how_often_felt_unable_control_your_life_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                27.&nbsp;<app-label text="¿Con qué frecuencia se ha sentido nervioso o estresado?"></app-label>
+                <app-select #how_often_nervous_or_stressed_id="ngModel" [(ngModel)]="data.how_often_nervous_or_stressed_id" [name]="'how_often_nervous_or_stressed_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_nervous_or_stressed_id.errors&&how_often_nervous_or_stressed_id.errors.required&&how_often_nervous_or_stressed_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                28.&nbsp;<app-label text="¿Con qué frecuencia ha estado seguro sobre su capacidad para manejar sus problemas personales?"></app-label>
+                <app-select #how_often_ability_handle_personal_problems_id="ngModel" [(ngModel)]="data.how_often_ability_handle_personal_problems_id" [name]="'how_often_ability_handle_personal_problems_id'" [required]="true"
+                    [data]="likert_never_always_inverted" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_ability_handle_personal_problems_id.errors&&how_often_ability_handle_personal_problems_id.errors.required&&how_often_ability_handle_personal_problems_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                29.&nbsp;<app-label text="¿Con qué frecuencia ha sentido que las cosas le van bien?"></app-label>
+                <app-select #how_often_things_going_well_you_id="ngModel" [(ngModel)]="data.how_often_things_going_well_you_id" [name]="'how_often_things_going_well_you_id'" [required]="true"
+                    [data]="likert_never_always_inverted" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_things_going_well_you_id.errors&&how_often_things_going_well_you_id.errors.required&&how_often_things_going_well_you_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                30.&nbsp;<app-label text="¿Con qué frecuencia ha sentido que no podía afrontar todas las cosas que tenía que hacer?"></app-label>
+                <app-select #how_often_cope_all_things_id="ngModel" [(ngModel)]="data.how_often_cope_all_things_id" [name]="'how_often_cope_all_things_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_cope_all_things_id.errors&&how_often_cope_all_things_id.errors.required&&how_often_cope_all_things_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                31.&nbsp;<app-label text="¿Con qué frecuencia ha podido controlar las dificultades de su vida?"></app-label>
+                <app-select #how_often_control_difficulties_id="ngModel" [(ngModel)]="data.how_often_control_difficulties_id" [name]="'how_often_control_difficulties_id'" [required]="true"
+                    [data]="likert_never_always_inverted" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_control_difficulties_id.errors&&how_often_control_difficulties_id.errors.required&&how_often_control_difficulties_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                32.&nbsp;<app-label text="¿Con qué frecuencia se ha sentido que tenía todo bajo control?"></app-label>
+                <app-select #how_often_all_under_control_id="ngModel" [(ngModel)]="data.how_often_all_under_control_id" [name]="'how_often_all_under_control_id'" [required]="true"
+                    [data]="likert_never_always_inverted" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_all_under_control_id.errors&&how_often_all_under_control_id.errors.required&&how_often_all_under_control_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                33.&nbsp;<app-label text="¿Con qué frecuencia ha estado enfadado porque las cosas que le han ocurrido estaban fuera de su control?"></app-label>
+                <app-select #how_often_angry_out_control_id="ngModel" [(ngModel)]="data.how_often_angry_out_control_id" [name]="'how_often_angry_out_control_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_angry_out_control_id.errors&&how_often_angry_out_control_id.errors.required&&how_often_angry_out_control_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                34.&nbsp;<app-label text="¿Con qué frecuencia ha sentido que las dificultades se acumulan tanto que no puede superarlas?"></app-label>
+                <app-select #how_often_difficulties_cannot_overcome_id="ngModel" [(ngModel)]="data.how_often_difficulties_cannot_overcome_id" [name]="'how_often_difficulties_cannot_overcome_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="how_often_difficulties_cannot_overcome_id.errors&&how_often_difficulties_cannot_overcome_id.errors.required&&how_often_difficulties_cannot_overcome_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                35.&nbsp;<app-label text="Me siento más nervioso y ansioso que de costumbre."></app-label>
+                <app-select #feel_nervous_anxious_id="ngModel" [(ngModel)]="data.feel_nervous_anxious_id" [name]="'feel_nervous_anxious_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_nervous_anxious_id.errors&&feel_nervous_anxious_id.errors.required&&feel_nervous_anxious_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                36.&nbsp;<app-label text="Me da miedo sin razón alguna."></app-label>
+                <app-select #feel_scares_no_reason_id="ngModel" [(ngModel)]="data.feel_scares_no_reason_id" [name]="'feel_scares_no_reason_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_scares_no_reason_id.errors&&feel_scares_no_reason_id.errors.required&&feel_scares_no_reason_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                37.&nbsp;<app-label text="Me enojo fácilmente o siento pánico."></app-label>
+                <app-select #feel_angry_easily_or_panic_id="ngModel" [(ngModel)]="data.feel_angry_easily_or_panic_id" [name]="'feel_angry_easily_or_panic_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_angry_easily_or_panic_id.errors&&feel_angry_easily_or_panic_id.errors.required&&feel_angry_easily_or_panic_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                38.&nbsp;<app-label text="Siento que me estoy desmoronando."></app-label>
+                <app-select #feel_falling_apart_id="ngModel" [(ngModel)]="data.feel_falling_apart_id" [name]="'feel_falling_apart_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_falling_apart_id.errors&&feel_falling_apart_id.errors.required&&feel_falling_apart_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                39.&nbsp;<app-label text="Mis brazos y piernas tiemblan."></app-label>
+                <app-select #feel_arms_legs_shake_id="ngModel" [(ngModel)]="data.feel_arms_legs_shake_id" [name]="'feel_arms_legs_shake_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_arms_legs_shake_id.errors&&feel_arms_legs_shake_id.errors.required&&feel_arms_legs_shake_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                40.&nbsp;<app-label text="Me molestan los dolores de cabeza, cuello y dolor de espalda."></app-label>
+                <app-select #feel_bothered_headaches_neck_pain_id="ngModel" [(ngModel)]="data.feel_bothered_headaches_neck_pain_id" [name]="'feel_bothered_headaches_neck_pain_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_bothered_headaches_neck_pain_id.errors&&feel_bothered_headaches_neck_pain_id.errors.required&&feel_bothered_headaches_neck_pain_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                41.&nbsp;<app-label text="Me siento débil y me canso fácilmente."></app-label>
+                <app-select #feel_week_easily_tired_id="ngModel" [(ngModel)]="data.feel_week_easily_tired_id" [name]="'feel_week_easily_tired_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_week_easily_tired_id.errors&&feel_week_easily_tired_id.errors.required&&feel_week_easily_tired_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                42.&nbsp;<app-label text="Puedo sentir mi corazón latir rápido."></app-label>
+                <app-select #feel_hear_beating_fast_id="ngModel" [(ngModel)]="data.feel_hear_beating_fast_id" [name]="'feel_hear_beating_fast_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_hear_beating_fast_id.errors&&feel_hear_beating_fast_id.errors.required&&feel_hear_beating_fast_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                43.&nbsp;<app-label text="Me molestan los mareos."></app-label>
+                <app-select #feel_dizziness_bothers_id="ngModel" [(ngModel)]="data.feel_dizziness_bothers_id" [name]="'feel_dizziness_bothers_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_dizziness_bothers_id.errors&&feel_dizziness_bothers_id.errors.required&&feel_dizziness_bothers_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                44.&nbsp;<app-label text="Tengo desmayos o sensación de desmayos."></app-label>
+                <app-select #feel_faint_fainting_spells_id="ngModel" [(ngModel)]="data.feel_faint_fainting_spells_id" [name]="'feel_faint_fainting_spells_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_faint_fainting_spells_id.errors&&feel_faint_fainting_spells_id.errors.required&&feel_faint_fainting_spells_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                45.&nbsp;<app-label text="Tengo sensación de entumecimiento y hormigueo en mis dedos de manos y pies."></app-label>
+                <app-select #feel_numbness_tingling_fingers_toes_id="ngModel" [(ngModel)]="data.feel_numbness_tingling_fingers_toes_id" [name]="'feel_numbness_tingling_fingers_toes_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_numbness_tingling_fingers_toes_id.errors&&feel_numbness_tingling_fingers_toes_id.errors.required&&feel_numbness_tingling_fingers_toes_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                46.&nbsp;<app-label text="Me molestan los dolores de estómago o la indigestión."></app-label>
+                <app-select #feel_bother_stomach_aches_id="ngModel" [(ngModel)]="data.feel_bother_stomach_aches_id" [name]="'feel_bother_stomach_aches_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_bother_stomach_aches_id.errors&&feel_bother_stomach_aches_id.errors.required&&feel_bother_stomach_aches_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                47.&nbsp;<app-label text="Tengo que vaciar mi vejiga con frecuencia."></app-label>
+                <app-select #feel_empty_bladder_id="ngModel" [(ngModel)]="data.feel_empty_bladder_id" [name]="'feel_empty_bladder_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_empty_bladder_id.errors&&feel_empty_bladder_id.errors.required&&feel_empty_bladder_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                48.&nbsp;<app-label text="Se me calienta la cara y se me pone enrojecida."></app-label>
+                <app-select #feel_red_hot_face_id="ngModel" [(ngModel)]="data.feel_red_hot_face_id" [name]="'feel_red_hot_face_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_red_hot_face_id.errors&&feel_red_hot_face_id.errors.required&&feel_red_hot_face_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                49.&nbsp;<app-label text="Tengo pesadillas."></app-label>
+                <app-select #feel_nightmares_id="ngModel" [(ngModel)]="data.feel_nightmares_id" [name]="'feel_nightmares_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="feel_nightmares_id.errors&&feel_nightmares_id.errors.required&&feel_nightmares_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                50.&nbsp;<app-label text="No pude dejar de estar triste a pesar de la ayuda de amigos y familiares"></app-label>
+                <app-select #stop_being_sad_id="ngModel" [(ngModel)]="data.stop_being_sad_id" [name]="'stop_being_sad_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="stop_being_sad_id.errors&&stop_being_sad_id.errors.required&&stop_being_sad_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                51.&nbsp;<app-label text="Me sentí deprimido (a)"></app-label>
+                <app-select #felt_depressed_id="ngModel" [(ngModel)]="data.felt_depressed_id" [name]="'felt_depressed_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="felt_depressed_id.errors&&felt_depressed_id.errors.required&&felt_depressed_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                52.&nbsp;<app-label text="Pensé que mi vida ha sido un fracaso"></app-label>
+                <app-select #thought_my_life_has_been_failure_id="ngModel" [(ngModel)]="data.thought_my_life_has_been_failure_id" [name]="'thought_my_life_has_been_failure_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="thought_my_life_has_been_failure_id.errors&&thought_my_life_has_been_failure_id.errors.required&&thought_my_life_has_been_failure_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                53.&nbsp;<app-label text="Me sentí nervioso"></app-label>
+                <app-select #felt_nervous_id="ngModel" [(ngModel)]="data.felt_nervous_id" [name]="'felt_nervous_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="felt_nervous_id.errors&&felt_nervous_id.errors.required&&felt_nervous_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                54.&nbsp;<app-label text="Estuve feliz"></app-label>
+                <app-select #was_happy_id="ngModel" [(ngModel)]="data.was_happy_id" [name]="'was_happy_id'" [required]="true"
+                    [data]="likert_never_always_inverted" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="was_happy_id.errors&&was_happy_id.errors.required&&was_happy_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                55.&nbsp;<app-label text="Me sentí solo (a)"></app-label>
+                <app-select #felt_alone_id="ngModel" [(ngModel)]="data.felt_alone_id" [name]="'felt_alone_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="felt_alone_id.errors&&felt_alone_id.errors.required&&felt_alone_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                56.&nbsp;<app-label text="Disfruté la vida"></app-label>
+                <app-select #enjoyed_life_id="ngModel" [(ngModel)]="data.enjoyed_life_id" [name]="'enjoyed_life_id'" [required]="true"
+                    [data]="likert_never_always_inverted" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="enjoyed_life_id.errors&&enjoyed_life_id.errors.required&&enjoyed_life_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                57.&nbsp;<app-label text="Tuve crisis de llanto"></app-label>
+                <app-select #have_crying_crisis_id="ngModel" [(ngModel)]="data.have_crying_crisis_id" [name]="'have_crying_crisis_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_crying_crisis_id.errors&&have_crying_crisis_id.errors.required&&have_crying_crisis_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                58.&nbsp;<app-label text="Me sentí triste"></app-label>
+                <app-select #felt_sad_id="ngModel" [(ngModel)]="data.felt_sad_id" [name]="'felt_sad_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="felt_sad_id.errors&&felt_sad_id.errors.required&&felt_sad_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                59.&nbsp;<app-label text="Sentí que no podía seguir adelante"></app-label>
+                <app-select #felt_couldnt_go_on_id="ngModel" [(ngModel)]="data.felt_couldnt_go_on_id" [name]="'felt_couldnt_go_on_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="felt_couldnt_go_on_id.errors&&felt_couldnt_go_on_id.errors.required&&felt_couldnt_go_on_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                60.&nbsp;<app-label text="¿Has pensado alguna vez que la vida no vale la pena?"></app-label>
+                <app-select #have_thought_life_not_worth_living_id="ngModel" [(ngModel)]="data.have_thought_life_not_worth_living_id" [name]="'have_thought_life_not_worth_living_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_thought_life_not_worth_living_id.errors&&have_thought_life_not_worth_living_id.errors.required&&have_thought_life_not_worth_living_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                61.&nbsp;<app-label text="¿Has deseado alguna vez estar muerto?"></app-label>
+                <app-select #have_wished_were_dead_id="ngModel" [(ngModel)]="data.have_wished_were_dead_id" [name]="'have_wished_were_dead_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_wished_were_dead_id.errors&&have_wished_were_dead_id.errors.required&&have_wished_were_dead_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                62.&nbsp;<app-label text="¿Has pensado alguna vez terminar con tu vida?"></app-label>
+                <app-select #have_thought_ending_your_life_id="ngModel" [(ngModel)]="data.have_thought_ending_your_life_id" [name]="'have_thought_ending_your_life_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_thought_ending_your_life_id.errors&&have_thought_ending_your_life_id.errors.required&&have_thought_ending_your_life_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                63.&nbsp;<app-label text="¿Has intentado suicidarte?"></app-label>
+                <app-select #have_tried_kill_yourself_id="ngModel" [(ngModel)]="data.have_tried_kill_yourself_id" [name]="'have_tried_kill_yourself_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_tried_kill_yourself_id.errors&&have_tried_kill_yourself_id.errors.required&&have_tried_kill_yourself_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                64.&nbsp;<app-label text="¿Cuentas con alguien de tu familia para poder platicar cuando lo necesitas?"></app-label>
+                <app-select #do_you_have_someone_talk_id="ngModel" [(ngModel)]="data.do_you_have_someone_talk_id" [name]="'do_you_have_someone_talk_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="do_you_have_someone_talk_id.errors&&do_you_have_someone_talk_id.errors.required&&do_you_have_someone_talk_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                65.&nbsp;<app-label text="¿Cuentas con algún amigo(a) con quien puedas platicar cuando lo necesitas?"></app-label>
+                <app-select #do_you_have_friend_talk_id="ngModel" [(ngModel)]="data.do_you_have_friend_talk_id" [name]="'do_you_have_friend_talk_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="do_you_have_friend_talk_id.errors&&do_you_have_friend_talk_id.errors.required&&do_you_have_friend_talk_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                66.&nbsp;<app-label text="¿Cuentas con alguien de tu familia que te ayude a resolver algún problema personal?"></app-label>
+                <app-select #do_you_have_someone_family_solve_poblems_id="ngModel" [(ngModel)]="data.do_you_have_someone_family_solve_poblems_id" [name]="'do_you_have_someone_family_solve_poblems_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="do_you_have_someone_family_solve_poblems_id.errors&&do_you_have_someone_family_solve_poblems_id.errors.required&&do_you_have_someone_family_solve_poblems_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                67.&nbsp;<app-label text="¿Cuentas con algún amigo(a) que te que te ayude a resolver algún problema personal?"></app-label>
+                <app-select #have_friend_solve_personal_problem_id="ngModel" [(ngModel)]="data.have_friend_solve_personal_problem_id" [name]="'have_friend_solve_personal_problem_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="have_friend_solve_personal_problem_id.errors&&have_friend_solve_personal_problem_id.errors.required&&have_friend_solve_personal_problem_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                68.&nbsp;<app-label text="¿Tus padres te demuestran cariño y/o afecto?"></app-label>
+                <app-select #your_parents_show_love_affection_id="ngModel" [(ngModel)]="data.your_parents_show_love_affection_id" [name]="'your_parents_show_love_affection_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="your_parents_show_love_affection_id.errors&&your_parents_show_love_affection_id.errors.required&&your_parents_show_love_affection_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                69.&nbsp;<app-label text="¿Cuentas con algún amigo(a) que te demuestre afecto?"></app-label>
+                <app-select #do_you_have_friend_show_affection_id="ngModel" [(ngModel)]="data.do_you_have_friend_show_affection_id" [name]="'do_you_have_friend_show_affection_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="do_you_have_friend_show_affection_id.errors&&do_you_have_friend_show_affection_id.errors.required&&do_you_have_friend_show_affection_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                70.&nbsp;<app-label text="¿Confías en tu familia para hablar de las cosas que te preocupan?"></app-label>
+                <app-select #do_you_trust_family_things_worry_id="ngModel" [(ngModel)]="data.do_you_trust_family_things_worry_id" [name]="'do_you_trust_family_things_worry_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="do_you_trust_family_things_worry_id.errors&&do_you_trust_family_things_worry_id.errors.required&&do_you_trust_family_things_worry_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                71.&nbsp;<app-label text="¿Confías en algún amigo(a) para hablar de las cosas que te preocupan?"></app-label>
+                <app-select #do_you_trust_friend_things_worry_id="ngModel" [(ngModel)]="data.do_you_trust_friend_things_worry_id" [name]="'do_you_trust_friend_things_worry_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="do_you_trust_friend_things_worry_id.errors&&do_you_trust_friend_things_worry_id.errors.required&&do_you_trust_friend_things_worry_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                72.&nbsp;<app-label text="¿Alguien de tu familia te apoya cuando tienes problemas en la escuela?"></app-label>
+                <app-select #someone_family_support_problems_school_id="ngModel" [(ngModel)]="data.someone_family_support_problems_school_id" [name]="'someone_family_support_problems_school_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="someone_family_support_problems_school_id.errors&&someone_family_support_problems_school_id.errors.required&&someone_family_support_problems_school_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                73.&nbsp;<app-label text="¿Alguien de tus amigos(as) te ayuda en las tareas de la escuela o trabajo?"></app-label>
+                <app-select #someone_friend_help_homework_work_id="ngModel" [(ngModel)]="data.someone_friend_help_homework_work_id" [name]="'someone_friend_help_homework_work_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="someone_friend_help_homework_work_id.errors&&someone_friend_help_homework_work_id.errors.required&&someone_friend_help_homework_work_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                74.&nbsp;<app-label text="¿Alguien de tus amigos(as) te apoya cuando tienes problemas en la escuela?"></app-label>
+                <app-select #someone_friend_support_problems_school_id="ngModel" [(ngModel)]="data.someone_friend_support_problems_school_id" [name]="'someone_friend_support_problems_school_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="someone_friend_support_problems_school_id.errors&&someone_friend_support_problems_school_id.errors.required&&someone_friend_support_problems_school_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                75.&nbsp;<app-label text="¿En mi familia se habla de los problemas de todos y nos apoyamos todos (papás, hijos y hermanos)?"></app-label>
+                <app-select #family_talk_problems_all_supports_id="ngModel" [(ngModel)]="data.family_talk_problems_all_supports_id" [name]="'family_talk_problems_all_supports_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="family_talk_problems_all_supports_id.errors&&family_talk_problems_all_supports_id.errors.required&&family_talk_problems_all_supports_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                76.&nbsp;<app-label text="¿Estás satisfecho(a) con el apoyo que recibes de tu familia?"></app-label>
+                <app-select #satisfied_support_family_id="ngModel" [(ngModel)]="data.satisfied_support_family_id" [name]="'satisfied_support_family_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="satisfied_support_family_id.errors&&satisfied_support_family_id.errors.required&&satisfied_support_family_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                77.&nbsp;<app-label text="¿Estás satisfecho(a) con el apoyo que recibes de tus amigos(as)?"></app-label>
+                <app-select #satisfied_support_friend_id="ngModel" [(ngModel)]="data.satisfied_support_friend_id" [name]="'satisfied_support_friend_id'" [required]="true"
+                    [data]="likert_never_always" [name_field]="'name'" [value_field]="'id'"
+                    [class]="'form-control'" [placeholder]="'-- Selecciona --'"></app-select>
+                    <small *ngIf="satisfied_support_friend_id.errors&&satisfied_support_friend_id.errors.required&&satisfied_support_friend_id.touched" class="text-danger">* Campo requerido</small>
+            </div>
+        </div>
+     
+    </div>
+    <div class="row" *ngIf="form.invalid&&form.submitted">
+        <div class="col text-center mb-2">
+            <strong class="text-danger">*Por favor, complete el formulario*</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+                <app-button [type]="'submit'" [class]="'btn btn-success btn-block'" [text]="'Siguiente'"></app-button>
+            </div>
+        </div>
+    </div>
+</form>
